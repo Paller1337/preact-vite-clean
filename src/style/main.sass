@@ -1,0 +1,585 @@
+.header
+    position: absolute
+    left: 0
+    right: 0
+    z-index: 1000
+    &__wrapper
+        width: 100%
+        padding: 50px 0
+        display: flex
+        gap: 48px
+        justify-content: center
+    &__item
+        cursor: pointer
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 10px
+        position: relative
+        &-circle
+            width: 50px
+            height: 50px
+            border-radius: 50%
+            position: fixed
+            background-color: rgba(255, 255, 255, 0.35)
+            pointer-events: none
+            transition: transform 300ms linear, opacity .62s ease-in-out
+            transform: translate(-50%, -50%)
+            opacity: 0
+            position: absolute
+            left: 0
+            top: 0
+            filter: blur(20px)
+            &.visible
+                // visibility: visible
+                opacity: 1
+
+        &-text
+            color: #FFF
+            font-family: Montserrat
+            font-size: 24px
+            font-style: normal
+            font-weight: 800
+            line-height: normal
+            text-transform: uppercase
+            opacity: .6
+            transition: opacity .19s ease-in-out
+
+            // background-clip: text
+            // -webkit-background-clip: text
+            // -webkit-text-fill-color: transparent
+            // position: relative
+            // z-index: 5
+            // &-back
+            //     position: absolute
+            //     left: 0
+            //     top: 0
+            //     color: #FFF
+            //     font-family: Montserrat
+            //     font-size: 24px
+            //     font-style: normal
+            //     font-weight: 800
+            //     line-height: normal
+            //     text-transform: uppercase
+            //     opacity: 0
+            //     transition: opacity .19s ease-in-out
+            //     z-index: 4
+        &-after
+            display: flex
+            gap: 10px
+            justify-content: center
+            &--ell
+                background: #fff
+                border-radius: 100%
+                width: 6px
+                height: 6px
+                opacity: .2
+                transition: opacity .19s ease-in-out
+        &:hover
+            .header__item
+                &-text
+                    opacity: 1
+                    // &-back
+                    //     opacity: 1
+                &-after--ell
+                    background: #fff
+                    border-radius: 100%
+                    width: 6px
+                    height: 6px
+                    opacity: .7
+                    transition: opacity .19s ease-in-out
+                    transition-delay: .07s
+                    &:nth-child(2)
+                        transition-delay: .14s
+                    &:nth-child(3)
+                        transition-delay: .21s
+
+.welcome
+    // background: url(/images/welcome-bg.png)
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    width: 100vw
+    height: 1000px
+    position: relative
+    overflow: hidden
+    &__bg
+        position: absolute
+        left: 0
+        right: 0
+        top: 0
+        bottom: 0
+        min-height: 1000px
+        z-index: 4
+        pointer-events: none
+        user-select: none
+        &-front
+            object-fit: cover
+            width: 100%
+            height: 100%
+            z-index: 3
+            position: absolute
+            left: 0
+            top: 0
+
+        &-medium
+            object-fit: cover
+            width: 100%
+            height: 100%
+            z-index: 2
+            position: absolute
+            left: 0
+            top: 0
+
+        &-back
+            object-fit: cover
+            width: 100%
+            height: 100%
+            z-index: 1
+            position: absolute
+            left: 0
+            top: 0
+        &-leaves
+            position: absolute
+            left: 0
+            right: 0
+            background: url(/svg/leaves-bottom-0.svg)
+            top: 0
+            bottom: 0
+            background-size: cover
+            background-repeat: no-repeat
+            background-position-x: center
+            background-position-y: top
+            z-index: 300
+            transform: translateY(50%)
+    &__vignette
+        position: absolute
+        z-index: 10
+        height: 100%
+        width: 100%
+        &--one
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            background: url(/svg/vignette-1.svg)
+            background-repeat: no-repeat
+            background-position-y: bottom
+            background-position-x: center
+
+        &--two
+            position: absolute
+            left: 50%
+            height: 500px
+            width: 100%
+            bottom: 0
+            background: #0C0C0C
+            transform: translate(-50%, 40%)
+            border-radius: 100%
+            filter: blur(110px)
+        &--top
+            position: absolute
+            top: -200%
+            bottom: 40%
+            left: 50%
+            transform: translateX(-50%)
+            width: 100%
+            max-width: 1290px
+            border-radius: 1496px
+            background: rgba(14, 109, 92, 0.64)
+            filter: blur(125px)
+
+    &__text
+        display: flex
+        flex-direction: column
+        gap: 8px
+        margin: 300px auto 0 auto
+        align-items: flex-start
+        width: fit-content
+        position: relative
+        z-index: 100
+
+    &__logo
+        pointer-events: none
+        color: #FFF
+        font-family: Minecraft Rus
+        font-size: 96px
+        font-style: normal
+        line-height: normal
+        text-transform: uppercase
+        position: relative
+        &-front
+            position: relative
+            z-index: 2
+        &-back
+            color: #275D41
+            position: absolute
+            right: 2px
+            top: 2px
+            z-index: 1
+            text-shadow: -10px -4px 23px rgba(255, 255, 255, 0.34), -38px -18px 42px rgba(255, 255, 255, 0.30), -87px -40px 57px rgba(255, 255, 255, 0.18), -154px -71px 68px rgba(255, 255, 255, 0.05), -241px -110px 74px rgba(255, 255, 255, 0.01)
+
+    &__signature
+        color: #FFF
+        text-align: center
+        font-family: Montserrat
+        font-size: 14px
+        font-style: normal
+        font-weight: 600
+        line-height: normal
+        text-transform: uppercase
+
+    &__snow
+        height: 100%
+        width: 100%
+        object-fit: cover
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        z-index: 5
+        background: #fff
+        mix-blend-mode: screen
+
+.what-is
+    min-height: 500px
+    width: 100%
+    background: #0C0C0C
+    padding-bottom: 100px
+    &__image
+        position: relative
+        z-index: 10
+        height: 1030px
+        max-height: 1030px
+        width: 100%
+        overflow: hidden
+        .main-button
+            position: absolute
+            left: 50%
+            bottom: 200px
+            transform: translateX(-50%)
+
+        &.zoom-out
+            img
+                transform: scale(1)
+        img
+            position: absolute
+            left: 0
+            right: 0
+            top: 0
+            bottom: 0
+            height: 100%
+            width: 100%
+            max-height: 1030px
+            object-fit: cover
+
+            transform: scale(3)
+            transition: all .8s ease-in-out
+        &::after
+            content: ''
+            position: absolute
+            left: 0
+            right: 0
+            background: url(/svg/leaves-top-1.svg)
+            top: 0
+            bottom: 0
+            background-size: auto
+            background-repeat: no-repeat
+            background-position-x: center
+            background-position-y: top
+            z-index: 1
+        &::before
+            content: ''
+            position: absolute
+            left: 0
+            right: 0
+            background: url(/svg/leaves-bottom-1.svg)
+            top: 0
+            bottom: 0
+            background-size: auto
+            background-repeat: no-repeat
+            background-position-x: center
+            background-position-y: bottom
+            z-index: 1
+
+    &__scroll-slider
+        position: relative
+        .scroll-slider
+            &__scroll-area
+                display: flex
+                flex-direction: row
+                flex-wrap: nowrap
+                justify-content: space-between
+
+            &__pin-space
+                display: flex
+                width: 690px
+                height: 420px
+            &__images-wrap
+                -webkit-mask-image: url(/images/pin/mask.svg)
+                mask-image: url(/images/pin/mask.svg)
+                -webkit-mask-size: cover
+                mask-size: cover
+                overflow: hidden
+                position: relative
+                transition: width .5s
+                width: 100%
+                &.fixed
+                    position: fixed
+                    top: 300px
+                    z-index: 100
+                    width: 100%
+                    height: 100%
+            &__image
+                height: 100%
+                left: 0
+                opacity: 0
+                position: absolute
+                top: 0
+                visibility: hidden
+                width: 100%
+                transition: all .4s ease-in-out
+                transform: scale(1.5)
+                &.visible
+                    opacity: 1
+                    visibility: visible
+                    transform: scale(1)
+
+            &__content-wrap
+                max-width: 520px
+                display: flex
+                flex-direction: column
+                gap: 420px
+
+.video-about
+    min-height: 500px
+    width: 100%
+    background: #0C0C0C
+    padding-bottom: 100px
+
+    &__video-container
+        height: 1035px
+        position: relative
+        z-index: 10
+        background: #fff
+
+        &::after
+            content: ''
+            position: absolute
+            left: 0
+            right: 0
+            background: url(/svg/leaves-top-2.svg)
+            top: -1px
+            bottom: 0
+            background-size: auto
+            background-repeat: no-repeat
+            background-position-x: center
+            background-position-y: top
+            z-index: 5
+            user-select: none
+            pointer-events: none
+        &::before
+            content: ''
+            position: absolute
+            left: 0
+            right: 0
+            background: url(/svg/leaves-bottom-2.svg)
+            top: 0
+            bottom: -1px
+            background-size: auto
+            background-repeat: no-repeat
+            background-position-x: center
+            background-position-y: bottom
+            z-index: 5
+            user-select: none
+            pointer-events: none
+
+    &__video
+        height: 100%
+        width: 100%
+        object-fit: cover
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        background: #fff
+        // mix-blend-mode: screen
+        z-index: 1
+
+        &-action
+            position: absolute
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+            background: rgba(0, 0, 0, 0.6)
+            z-index: 3
+            cursor: pointer
+            display: flex
+            align-items: center
+            justify-content: center
+            opacity: 1
+            transition: all .32s ease-in-out
+            &.playing
+                opacity: 0
+            &.pause-hovered
+                &:hover
+                    opacity: 1
+
+            .video-action
+                &__btn
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    justify-content: center
+                    gap: 76px
+                    visibility: visible
+                    opacity: 1
+                    transition: all .32s ease-in-out
+                    max-width: 650px
+                    width: 50%
+                    &.hidden
+                        visibility: hidden
+                        opacity: 0
+                &__text
+                    color: #FFF
+                    font-family: Montserrat
+                    font-size: 64px
+                    font-style: normal
+                    font-weight: 800
+                    line-height: normal
+                    text-transform: uppercase
+
+.pets
+    min-height: 500px
+    width: 100%
+    background: #0C0C0C
+    padding-bottom: 100px
+
+    &-cards
+        display: flex
+        flex-direction: row
+        flex-wrap: nowrap
+        gap: 30px
+        padding: 60px 60px
+        overflow-y: scroll
+        -ms-overflow-style: none
+        scrollbar-width: none
+        user-select: none
+        box-sizing: border-box
+        -webkit-tap-highlight-color: rgba(0,0,0,0)
+        &::-webkit-scrollbar
+            display: none
+
+        &__item
+            min-width: 410px
+            min-height: 514px
+            background-repeat: no-repeat
+            background-size: contain
+            display: flex
+            flex-direction: column
+            cursor: pointer
+            user-select: none
+            &-img
+                width: 100%
+                object-fit: contain
+                user-select: none
+            &-text
+                color: #FFF
+                text-align: center
+                font-family: Montserrat
+                font-size: 40px
+                font-weight: 800
+                line-height: normal
+                text-transform: uppercase
+                user-select: none
+
+.launcher
+    height: 1035px
+    width: 100%
+    background: #0C0C0C
+    padding-bottom: 100px
+    position: relative
+    z-index: 10
+    background: url('/images/launcher-bg.png')
+    background-repeat: no-repeat
+    background-size: cover
+
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &__ui
+        position: absolute
+        left: 50%
+        transform: translate(-50%, 0%)
+        bottom: 0
+        object-fit: contain
+        z-index: 1
+        // transition: all .32s ease-in-out
+        box-shadow: 3px 15px 33px 0px rgba(0, 0, 0, 0.64), 11px 59px 60px 0px rgba(0, 0, 0, 0.55), 25px 134px 82px 0px rgba(0, 0, 0, 0.33), 44px 238px 97px 0px rgba(0, 0, 0, 0.10), 69px 372px 106px 0px rgba(0, 0, 0, 0.01)
+        border-radius: 24px
+        overflow: hidden
+    &__ell
+        position: absolute
+        left: -120px
+        right: -120px
+        top: -150px
+        bottom: -30px
+        border-radius: 100%
+        background: #000
+        filter: blur(80px)
+        z-index: -1
+    &__content
+        display: flex
+        flex-direction: column
+        align-items: center
+        gap: 60px
+        width: 860px
+        padding-bottom: 200px
+        position: relative
+        z-index: 10
+
+    &__text
+        color: #FFF
+        text-align: center
+        font-family: Montserrat
+        font-size: 40px
+        font-style: normal
+        font-weight: 800
+        line-height: normal
+        text-transform: uppercase
+        position: relative
+        z-index: 100
+
+    &::after
+        content: ''
+        position: absolute
+        left: 0
+        right: 0
+        background: url(/svg/leaves-top-3.svg)
+        top: -1px
+        bottom: 0
+        background-size: auto
+        background-repeat: no-repeat
+        background-position-x: center
+        background-position-y: top
+        z-index: 5
+        user-select: none
+        pointer-events: none
+    &::before
+        content: ''
+        position: absolute
+        left: 0
+        right: 0
+        background: url(/svg/leaves-bottom-3.svg)
+        top: 0
+        bottom: -1px
+        background-size: auto
+        background-repeat: no-repeat
+        background-position-x: center
+        background-position-y: bottom
+        z-index: 5
+        user-select: none
+        pointer-events: none

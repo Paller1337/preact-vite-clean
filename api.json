@@ -1,0 +1,2438 @@
+{
+	"info": {
+		"_postman_id": "216bc30c-cb33-49fa-9a6b-0739948866cc",
+		"name": "Bnovo PMS API",
+		"description": "<p>Передача сообщений между API и пользователем осуществляется через протокол HTTPS. Запросы с параметрами передаются через HTTP методы: GET, POST. Ответы API представляют собой сообщения в формате JSON, если в запросах передается заголовок Accept со значением \"application/json\". Если не передать этот заголовок, некоторые методы могут возвращать ответы в формате HTML.</p> <p>В любом запросе нужно передавать cookie с идентификатором сессии (SID), который возвращается при первоначальном заходе в программу. Время жизни сессии - 1 час. Если за это время в сессии не было запросов, то она уничтожается. В ответ на любой запрос c неверным или просроченным SID вернется страница входа</p> <p>Параметры запроса необходимо передавать в виде JSON. Для этого нужно передать HTTP заголовок “Content-Type” со значением “application/json” и в теле запроса указать необходимые параметры, закодированные в JSON строку.</p><p>Домен для обращения к API: <a href=\"online.bnovo.ru\">online.bnovo.ru</a></p><p>Далее по тексту указаны относительные URL точек входа в API.</p>",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30528760",
+		"_collection_link": "https://www.postman.com/cloudy-meadow-634504/sds/collection/2766u1j/bnovo-pms-api?action=share&source=collection_link&creator=30528760"
+	},
+	"item": [
+		{
+			"name": "templates",
+			"item": [
+				{
+					"name": "custom",
+					"item": [
+						{
+							"name": "Получить пользовательские шаблоны документов",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/templates/custom",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"templates",
+										"custom"
+									]
+								},
+								"description": "Метод API позволяет получить пользовательские шаблоны документов - это документы, которые отельер загружает в Bnovo PMS на своё усмотрение (договор на оказание гостиничных услуг, подтверждение бронирования и т. д.)"
+							},
+							"response": [
+								{
+									"name": "Пользовательские шаблоны документов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://online.bnovo.ru/templates/custom",
+											"protocol": "https",
+											"host": [
+												"online",
+												"bnovo",
+												"ru"
+											],
+											"path": [
+												"templates",
+												"custom"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"suppliers\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"is_hotel_legal_entity\": \"<string>\",\n      \"name\": \"<string>\",\n      \"law_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"site\": \"<string>\",\n      \"country_id\": \"<string>\",\n      \"country_name\": \"<string>\",\n      \"city\": \"<string>\",\n      \"address\": \"<string>\",\n      \"law_address\": \"<string>\",\n      \"inn\": \"<string>\",\n      \"kpp\": \"<string>\",\n      \"account\": \"<string>\",\n      \"correspondent_account\": \"<string>\",\n      \"bik\": \"<string>\",\n      \"bank\": \"<string>\",\n      \"ogrn\": \"<string>\",\n      \"ceo\": \"<string>\",\n      \"accountant\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"extra\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"is_hotel_legal_entity\": \"<string>\",\n      \"name\": \"<string>\",\n      \"law_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"site\": \"<string>\",\n      \"country_id\": \"<string>\",\n      \"country_name\": \"<string>\",\n      \"city\": \"<string>\",\n      \"address\": \"<string>\",\n      \"law_address\": \"<string>\",\n      \"inn\": \"<string>\",\n      \"kpp\": \"<string>\",\n      \"account\": \"<string>\",\n      \"correspondent_account\": \"<string>\",\n      \"bik\": \"<string>\",\n      \"bank\": \"<string>\",\n      \"ogrn\": \"<string>\",\n      \"ceo\": \"<string>\",\n      \"accountant\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"extra\": {}\n    }\n  ],\n  \"templates\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Получить предустановленные шаблоны документов",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/templates",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"templates"
+							]
+						},
+						"description": "Метод API позволяет получить предустановленные в Bnovo PMS шаблоны документов. Таковыми являются: Карточка гостя, Счет (ф. 3-Г), Счет-проформа, Миграционный учет (ф. 7), Уведомление об убытии иностранных граждан, Миграционный учет (ф. 10). Перечисленные шаблоны есть во всех аккаунтах в Bnovo PMS."
+					},
+					"response": [
+						{
+							"name": "Пользовательские шаблоны документов",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://online.bnovo.ru/templates",
+									"protocol": "https",
+									"host": [
+										"online",
+										"bnovo",
+										"ru"
+									],
+									"path": [
+										"templates"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"templates\": {\n    \"<key>\": {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"file\": \"<string>\"\n    }\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tariff",
+			"item": [
+				{
+					"name": "tariffs",
+					"item": [
+						{
+							"name": "Получение тарифов",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/tariff/tariffs",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tariff",
+										"tariffs"
+									]
+								},
+								"description": "Метод API позволяет получить список тарифов. Тарифы могут быть самостоятельные и зависимые. В зависимом тарифе цены рассчитываются автоматически от родительского согласно настройкам (применяется скидка или наценка в процентах или фиксированная)."
+							},
+							"response": [
+								{
+									"name": "Список тарифов",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://online.bnovo.ru/tariff/tariffs",
+											"protocol": "https",
+											"host": [
+												"online",
+												"bnovo",
+												"ru"
+											],
+											"path": [
+												"tariff",
+												"tariffs"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"plans\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"board_from_services\": \"<string>\",\n      \"police\": \"<string>\",\n      \"deadline\": \"<string>\",\n      \"is_main\": \"<string>\",\n      \"discount_type\": \"<string>\",\n      \"discount_amount\": \"<string>\",\n      \"has_child\": \"<boolean>\",\n      \"extra\": {},\n      \"relp_not_before\": \"<string>\",\n      \"relp_not_after\": \"<string>\",\n      \"pms_restrictions_enabled\": \"<string>\",\n      \"provider_plan_id\": \"<string>\",\n      \"provider_plan_settings\": {\n        \"enabled\": \"<integer>\",\n        \"enabled_ota\": \"<integer>\"\n      },\n      \"services\": \"<array>\",\n      \"create_date\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"board_from_services\": \"<string>\",\n      \"police\": \"<string>\",\n      \"deadline\": \"<string>\",\n      \"is_main\": \"<string>\",\n      \"discount_type\": \"<string>\",\n      \"discount_amount\": \"<string>\",\n      \"has_child\": \"<boolean>\",\n      \"extra\": {},\n      \"relp_not_before\": \"<string>\",\n      \"relp_not_after\": \"<string>\",\n      \"pms_restrictions_enabled\": \"<string>\",\n      \"provider_plan_id\": \"<string>\",\n      \"provider_plan_settings\": {\n        \"enabled\": \"<integer>\",\n        \"enabled_ota\": \"<integer>\"\n      },\n      \"services\": \"<array>\",\n      \"create_date\": \"<string>\"\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "prices",
+					"item": [
+						{
+							"name": "Создать или обновить цены тарифов",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"price\": {\n    \"dolor_5f\": {\n      \"laboris_46\": \"<number>\"\n    }\n  },\n  \"plan_id\": \"<integer>\",\n  \"dfrom\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/tariff/prices",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tariff",
+										"prices"
+									]
+								},
+								"description": "Метод API позволяет создавать и обновлять цены тарифов. Цены указываются на конкретную дату."
+							},
+							"response": [
+								{
+									"name": "Цены тарифов",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"price\": {\n    \"dolor_5f\": {\n      \"laboris_46\": \"<number>\"\n    }\n  },\n  \"plan_id\": \"<integer>\",\n  \"dfrom\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://online.bnovo.ru/tariff/prices",
+											"protocol": "https",
+											"host": [
+												"online",
+												"bnovo",
+												"ru"
+											],
+											"path": [
+												"tariff",
+												"prices"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "service",
+			"item": [
+				{
+					"name": "delete",
+					"item": [
+						{
+							"name": "{service_id}",
+							"item": [
+								{
+									"name": "Удалить доп. услугу",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/service/delete/:service_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"service",
+												"delete",
+												":service_id"
+											],
+											"variable": [
+												{
+													"key": "service_id",
+													"value": "<integer>"
+												}
+											]
+										},
+										"description": "<p>Метод API позволяет удалить дополнительную услугу.</p>"
+									},
+									"response": [
+										{
+											"name": "Список доп. услуг",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/service/delete/:service_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"service",
+														"delete",
+														":service_id"
+													],
+													"variable": [
+														{
+															"key": "service_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"services\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<string>\",\n      \"price_type\": \"<string>\",\n      \"type\": \"<string>\",\n      \"board_type\": \"<string>\",\n      \"payment_object\": \"<string>\",\n      \"daily\": \"<string>\",\n      \"is_package\": \"<string>\",\n      \"apply_after_arrival\": \"<string>\",\n      \"apply_on_departure\": \"<string>\",\n      \"max_quantity_enabled\": \"<string>\",\n      \"max_quantity\": \"<string>\",\n      \"provider_service_settings\": {\n        \"enabled\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"price_type\": \"<string>\",\n        \"board_type\": \"<string>\",\n        \"is_package\": \"<string>\",\n        \"package_additional_services_ids\": {}\n      },\n      \"prices\": [\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        }\n      ],\n      \"package\": [\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<string>\",\n      \"price_type\": \"<string>\",\n      \"type\": \"<string>\",\n      \"board_type\": \"<string>\",\n      \"payment_object\": \"<string>\",\n      \"daily\": \"<string>\",\n      \"is_package\": \"<string>\",\n      \"apply_after_arrival\": \"<string>\",\n      \"apply_on_departure\": \"<string>\",\n      \"max_quantity_enabled\": \"<string>\",\n      \"max_quantity\": \"<string>\",\n      \"provider_service_settings\": {\n        \"enabled\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"price_type\": \"<string>\",\n        \"board_type\": \"<string>\",\n        \"is_package\": \"<string>\",\n        \"package_additional_services_ids\": {}\n      },\n      \"prices\": [\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        }\n      ],\n      \"package\": [\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "add",
+					"item": [
+						{
+							"name": "Добавить доп. услугу",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<string>\",\n  \"daily\": \"<string>\",\n  \"price_type\": \"<string>\",\n  \"type\": \"<string>\",\n  \"payment_object\": \"<string>\",\n  \"tax_system_value\": [\n    {\n      \"<key>\": {\n        \"description\": \"Ключ - ID юр. лица отеля. Возможные значения: 0 - Общая, 1 - Упрощённая, доход (НДС не облагается), 2 - Упрощённая, доход минус расход (НДС не облагается), 3 - Единый налог на вменённый доход (НДС не облагается), 4 - Патентная система налогообложения (НДС не облагается)\"\n      }\n    },\n    {\n      \"<key>\": {\n        \"description\": \"Ключ - ID юр. лица отеля. Возможные значения: 0 - Общая, 1 - Упрощённая, доход (НДС не облагается), 2 - Упрощённая, доход минус расход (НДС не облагается), 3 - Единый налог на вменённый доход (НДС не облагается), 4 - Патентная система налогообложения (НДС не облагается)\"\n      }\n    }\n  ],\n  \"nds_type\": [\n    {\n      \"<key>\": {\n        \"description\": \"Ключ - ID юр. лица отеля. Возможные значения: 0 - без НДС, 1 - с НДС\"\n      }\n    },\n    {\n      \"<key>\": {\n        \"description\": \"Ключ - ID юр. лица отеля. Возможные значения: 0 - без НДС, 1 - с НДС\"\n      }\n    }\n  ],\n  \"board_type\": \"<string>\",\n  \"is_package\": \"<string>\",\n  \"apply_after_arrival\": \"<string>\",\n  \"apply_on_departure\": \"<string>\",\n  \"max_quantity_enabled\": \"<string>\",\n  \"max_quantity\": \"<string>\",\n  \"prices\": [\n    {\n      \"from\": \"<string>\",\n      \"to\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"from\": \"<string>\",\n      \"to\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ],\n  \"package_services\": \"<array>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/service/add",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"service",
+										"add"
+									]
+								},
+								"description": "<p>Метод API позволяет добавить дополнительную услугу.</p> <p>Если у отеля есть российское юрлицо, то при создании услуги надо доплнительно передавать обязательные поля payment_object, tax_system_valueи и nds_type"
+							},
+							"response": [
+								{
+									"name": "Список доп. услуг",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"price\": \"<string>\",\n  \"daily\": \"<string>\",\n  \"price_type\": \"<string>\",\n  \"type\": \"<string>\",\n  \"payment_object\": \"<string>\",\n  \"tax_system_value\": [\n    {\n      \"<key>\": {\n        \"description\": \"Ключ - ID юр. лица отеля. Возможные значения: 0 - Общая, 1 - Упрощённая, доход (НДС не облагается), 2 - Упрощённая, доход минус расход (НДС не облагается), 3 - Единый налог на вменённый доход (НДС не облагается), 4 - Патентная система налогообложения (НДС не облагается)\"\n      }\n    },\n    {\n      \"<key>\": {\n        \"description\": \"Ключ - ID юр. лица отеля. Возможные значения: 0 - Общая, 1 - Упрощённая, доход (НДС не облагается), 2 - Упрощённая, доход минус расход (НДС не облагается), 3 - Единый налог на вменённый доход (НДС не облагается), 4 - Патентная система налогообложения (НДС не облагается)\"\n      }\n    }\n  ],\n  \"nds_type\": [\n    {\n      \"<key>\": {\n        \"description\": \"Ключ - ID юр. лица отеля. Возможные значения: 0 - без НДС, 1 - с НДС\"\n      }\n    },\n    {\n      \"<key>\": {\n        \"description\": \"Ключ - ID юр. лица отеля. Возможные значения: 0 - без НДС, 1 - с НДС\"\n      }\n    }\n  ],\n  \"board_type\": \"<string>\",\n  \"is_package\": \"<string>\",\n  \"apply_after_arrival\": \"<string>\",\n  \"apply_on_departure\": \"<string>\",\n  \"max_quantity_enabled\": \"<string>\",\n  \"max_quantity\": \"<string>\",\n  \"prices\": [\n    {\n      \"from\": \"<string>\",\n      \"to\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"from\": \"<string>\",\n      \"to\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ],\n  \"package_services\": \"<array>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/service/add",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"service",
+												"add"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"services\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<string>\",\n      \"price_type\": \"<string>\",\n      \"type\": \"<string>\",\n      \"board_type\": \"<string>\",\n      \"payment_object\": \"<string>\",\n      \"daily\": \"<string>\",\n      \"is_package\": \"<string>\",\n      \"apply_after_arrival\": \"<string>\",\n      \"apply_on_departure\": \"<string>\",\n      \"max_quantity_enabled\": \"<string>\",\n      \"max_quantity\": \"<string>\",\n      \"provider_service_settings\": {\n        \"enabled\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"price_type\": \"<string>\",\n        \"board_type\": \"<string>\",\n        \"is_package\": \"<string>\",\n        \"package_additional_services_ids\": {}\n      },\n      \"prices\": [\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        }\n      ],\n      \"package\": [\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<string>\",\n      \"price_type\": \"<string>\",\n      \"type\": \"<string>\",\n      \"board_type\": \"<string>\",\n      \"payment_object\": \"<string>\",\n      \"daily\": \"<string>\",\n      \"is_package\": \"<string>\",\n      \"apply_after_arrival\": \"<string>\",\n      \"apply_on_departure\": \"<string>\",\n      \"max_quantity_enabled\": \"<string>\",\n      \"max_quantity\": \"<string>\",\n      \"provider_service_settings\": {\n        \"enabled\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"price_type\": \"<string>\",\n        \"board_type\": \"<string>\",\n        \"is_package\": \"<string>\",\n        \"package_additional_services_ids\": {}\n      },\n      \"prices\": [\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        }\n      ],\n      \"package\": [\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Получить список доп. услуг",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/service",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"service"
+							]
+						},
+						"description": "<p>Метод API позволяет получить список дополнительных услуг.</p>"
+					},
+					"response": [
+						{
+							"name": "Список доп. услуг",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/service",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"service"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"services\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<string>\",\n      \"price_type\": \"<string>\",\n      \"type\": \"<string>\",\n      \"board_type\": \"<string>\",\n      \"payment_object\": \"<string>\",\n      \"daily\": \"<string>\",\n      \"is_package\": \"<string>\",\n      \"apply_after_arrival\": \"<string>\",\n      \"apply_on_departure\": \"<string>\",\n      \"max_quantity_enabled\": \"<string>\",\n      \"max_quantity\": \"<string>\",\n      \"provider_service_settings\": {\n        \"enabled\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"price_type\": \"<string>\",\n        \"board_type\": \"<string>\",\n        \"is_package\": \"<string>\",\n        \"package_additional_services_ids\": {}\n      },\n      \"prices\": [\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        }\n      ],\n      \"package\": [\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"price\": \"<string>\",\n      \"price_type\": \"<string>\",\n      \"type\": \"<string>\",\n      \"board_type\": \"<string>\",\n      \"payment_object\": \"<string>\",\n      \"daily\": \"<string>\",\n      \"is_package\": \"<string>\",\n      \"apply_after_arrival\": \"<string>\",\n      \"apply_on_departure\": \"<string>\",\n      \"max_quantity_enabled\": \"<string>\",\n      \"max_quantity\": \"<string>\",\n      \"provider_service_settings\": {\n        \"enabled\": \"<integer>\",\n        \"id\": \"<string>\",\n        \"type\": \"<string>\",\n        \"price_type\": \"<string>\",\n        \"board_type\": \"<string>\",\n        \"is_package\": \"<string>\",\n        \"package_additional_services_ids\": {}\n      },\n      \"prices\": [\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"service_id\": \"<string>\",\n          \"date_from\": \"<string>\",\n          \"date_to\": \"<string>\",\n          \"price\": \"<string>\"\n        }\n      ],\n      \"package\": [\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"name\": \"<string>\",\n          \"price\": \"<string>\",\n          \"price_type\": \"<string>\",\n          \"type\": \"<string>\",\n          \"board_type\": \"<string>\",\n          \"payment_object\": \"<string>\",\n          \"daily\": \"<string>\",\n          \"is_package\": \"<string>\",\n          \"apply_after_arrival\": \"<string>\",\n          \"apply_on_departure\": \"<string>\",\n          \"max_quantity_enabled\": \"<string>\",\n          \"max_quantity\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "roomTypes",
+			"item": [
+				{
+					"name": "get",
+					"item": [
+						{
+							"name": "Получение категорий номеров",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/roomTypes/get?with_rooms=0",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"roomTypes",
+										"get"
+									],
+									"query": [
+										{
+											"key": "with_rooms",
+											"value": "0",
+											"description": "Получить категории со списком номеров"
+										}
+									]
+								},
+								"description": "<p>Метод API позволяет получить список категорий номеров аккаунта. Категории также могут иметь варианты размещения. Варианты размещения - это по сути виртуальные категории, которые имеют общее наличие с родительской категорией, но в тарифах для них могут задаваться собственные цены.</p>"
+							},
+							"response": [
+								{
+									"name": "Список категорий номеров",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/roomTypes/get?with_rooms=0",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"roomTypes",
+												"get"
+											],
+											"query": [
+												{
+													"key": "with_rooms",
+													"value": "0",
+													"description": "Получить категории со списком номеров"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"roomtypes\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"1\",\n      \"adults\": \"<string>\",\n      \"children\": \"<string>\",\n      \"price\": \"<string>\",\n      \"board\": \"<string>\",\n      \"description\": \"<string>\",\n      \"sort_order\": \"<string>\",\n      \"country\": \"<string>\",\n      \"city\": \"<string>\",\n      \"city_eng\": \"<string>\",\n      \"address\": \"<string>\",\n      \"address_eng\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"geo_data\": {\n        \"x\": \"<string>\",\n        \"y\": \"<string>\"\n      },\n      \"rooms\": [\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"room_type_id\": \"<string>\",\n          \"room_type_name\": \"<string>\",\n          \"name\": \"<string>\",\n          \"tags\": \"<string>\",\n          \"sort_order\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"room_type_id\": \"<string>\",\n          \"room_type_name\": \"<string>\",\n          \"name\": \"<string>\",\n          \"tags\": \"<string>\",\n          \"sort_order\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"parent_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"5\",\n      \"adults\": \"<string>\",\n      \"children\": \"<string>\",\n      \"price\": \"<string>\",\n      \"board\": \"<string>\",\n      \"description\": \"<string>\",\n      \"sort_order\": \"<string>\",\n      \"country\": \"<string>\",\n      \"city\": \"<string>\",\n      \"city_eng\": \"<string>\",\n      \"address\": \"<string>\",\n      \"address_eng\": \"<string>\",\n      \"postcode\": \"<string>\",\n      \"geo_data\": {\n        \"x\": \"<string>\",\n        \"y\": \"<string>\"\n      },\n      \"rooms\": [\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"room_type_id\": \"<string>\",\n          \"room_type_name\": \"<string>\",\n          \"name\": \"<string>\",\n          \"tags\": \"<string>\",\n          \"sort_order\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"hotel_id\": \"<string>\",\n          \"room_type_id\": \"<string>\",\n          \"room_type_name\": \"<string>\",\n          \"name\": \"<string>\",\n          \"tags\": \"<string>\",\n          \"sort_order\": \"<string>\"\n        }\n      ]\n    }\n  ]\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "room",
+			"item": [
+				{
+					"name": "Получение номеров (комнат)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/room",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"room"
+							]
+						},
+						"description": "<p>Метод API позволяет получить список комнат в отеле.</p>"
+					},
+					"response": [
+						{
+							"name": "Список номеров (комнат)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/room",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"room"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"rooms\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"room_type_id\": \"<string>\",\n      \"room_type_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": \"<string>\",\n      \"sort_order\": \"<string>\",\n      \"clean_status\": \"<string>\",\n      \"room_type\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"room_type_id\": \"<string>\",\n      \"room_type_name\": \"<string>\",\n      \"name\": \"<string>\",\n      \"tags\": \"<string>\",\n      \"sort_order\": \"<string>\",\n      \"clean_status\": \"<string>\",\n      \"room_type\": \"<string>\"\n    }\n  ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "reports",
+			"item": [
+				{
+					"name": "adr",
+					"item": [
+						{
+							"name": "Загрузка/ADR/RevPAR",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dfrom\": \"<string>\",\n  \"dto\": \"<string>\",\n  \"include_previous_period\": \"<string>\",\n  \"compare_period\": \"<string>\",\n  \"timeline_period\": \"<string>\",\n  \"requested_room_types\": \"<array>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/reports/adr",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reports",
+										"adr"
+									]
+								},
+								"description": "<p>Метод API позволяет получить отчет по загрузке, ADR и RevPAR за выбранный период.</p> <p>ADR (Average daily room rate) — средняя цена за номер/ночь. Вычисляется путем деления выручки от продажи номерного фонда на количество проданных номеров за отчетный период. За выручку принимается объем денежных средств, вне зависимости получены они или нет, за оказанные услуги.</p> <p>RevPAR (Revenue per available room per day) — доход на доступный номер в день. Высчитывается делением выручки от продажи номеров на общее количество доступных номеров.</p> <p>При построении отчета на будущее, для расчета берется стоимость забронированных услуг проживания, а не выручка, так как услуги еще не оказаны.</p> <p>Данные по загрузке возвращаются как в процентах, так и по количеству занятых номеров.</p> <p>Показатели можно запрашивать одновременно со сравнением на год, месяц или неделю назад/вперед.</p>"
+							},
+							"response": [
+								{
+									"name": "Результат запроса",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dfrom\": \"<string>\",\n  \"dto\": \"<string>\",\n  \"include_previous_period\": \"<string>\",\n  \"compare_period\": \"<string>\",\n  \"timeline_period\": \"<string>\",\n  \"requested_room_types\": \"<array>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/reports/adr",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"reports",
+												"adr"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"report\": {\n    \"info\": {\n      \"<key>\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"adr\": \"<number>\",\n        \"revpar\": \"<number>\"\n      },\n      \"selected\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"adr\": \"<number>\",\n        \"revpar\": \"<number>\"\n      },\n      \"all\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"adr\": \"<number>\",\n        \"revpar\": \"<number>\"\n      }\n    },\n    \"data\": {\n      \"<key>\": {\n        \"<key>\": {\n          \"amount\": \"<number>\",\n          \"adr\": \"<number>\",\n          \"revpar\": \"<number>\"\n        }\n      }\n    }\n  },\n  \"previous_report\": {\n    \"info\": {\n      \"<key>\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"adr\": \"<number>\",\n        \"revpar\": \"<number>\"\n      }\n    },\n    \"data\": {\n      \"<key>\": {\n        \"<key>\": {\n          \"amount\": \"<number>\",\n          \"adr\": \"<number>\",\n          \"revpar\": \"<number>\"\n        }\n      }\n    }\n  },\n  \"report_2\": {\n    \"info\": {\n      \"<key>\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"repair\": \"<number>\",\n        \"closed\": \"<number>\",\n        \"occupied\": \"<number>\",\n        \"total\": \"<number>\",\n        \"average\": \"<number>\"\n      }\n    },\n    \"data\": {\n      \"<key>\": {\n        \"<key>\": {\n          \"id\": \"<string>\",\n          \"repair\": \"<number>\",\n          \"closed\": \"<number>\",\n          \"occupied\": \"<number>\",\n          \"total\": \"<number>\",\n          \"average\": \"<number>\"\n        }\n      }\n    }\n  },\n  \"previous_report_2\": {\n    \"info\": {\n      \"<key>\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"code\": \"<string>\",\n        \"repair\": \"<number>\",\n        \"closed\": \"<number>\",\n        \"occupied\": \"<number>\",\n        \"total\": \"<number>\",\n        \"average\": \"<number>\"\n      }\n    },\n    \"data\": {\n      \"<key>\": {\n        \"<key>\": {\n          \"id\": \"<string>\",\n          \"repair\": \"<number>\",\n          \"closed\": \"<number>\",\n          \"occupied\": \"<number>\",\n          \"total\": \"<number>\",\n          \"average\": \"<number>\"\n        }\n      }\n    }\n  },\n  \"dfrom\": \"<string>\",\n  \"dto\": \"<string>\",\n  \"room_types\": \"<array>\",\n  \"compare_periods\": {},\n  \"compare_period\": \"<string>\",\n  \"timeline_periods\": {},\n  \"interval\": \"<string>\",\n  \"weekdays_shortnames\": {},\n  \"metrics\": {},\n  \"metric\": \"<string>\",\n  \"includeADR\": \"<boolean>\",\n  \"includeRevPar\": \"<boolean>\",\n  \"includePreviousPeriod\": \"<boolean>\",\n  \"selected_days_count\": \"<number>\",\n  \"loading_datatypes\": {},\n  \"loading_datatype\": \"<string>\",\n  \"requested_room_types\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "planning",
+			"item": [
+				{
+					"name": "bookings",
+					"item": [
+						{
+							"name": "Получение бронирований для шахматки",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "<string>",
+										"description": "(Required) "
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"dfrom\": \"<string>\",\n  \"dto\": \"<string>\",\n  \"daily\": 0\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/planning/bookings",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"planning",
+										"bookings"
+									]
+								},
+								"description": "<p>Метод API позволяет получить элементы для построения шахматки в Bnovo PMS. В запросе нужно передать параметры dfrom и dto. Если какая-то из дат в брони попадает в промежуток от dfrom до dto, то элемент этой брони попадет в результирующий список. </p> <p>Метод возвращает данные только по <b>НЕОТМЕНЕННЫМ</b> бронированиям.</p> <p>Если в рамках одной брони гость переселяется из номера в номер, нужно иметь в виду, что такая бронь  в массиве <b>result</b> будет разделена на несколько элементов.</p> <p>Для получения исторических данных по бронированием метод не подходит. Вместо него воспользуйтесь методом /dashboard</p>"
+							},
+							"response": [
+								{
+									"name": "Список бронирований для шахматки",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "<string>",
+												"description": "(Required) "
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"dfrom\": \"<string>\",\n  \"dto\": \"<string>\",\n  \"daily\": 0\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/planning/bookings",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"planning",
+												"bookings"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"result\": [\n    {\n      \"booking_id\": \"<string>\",\n      \"status_id\": \"<integer>\",\n      \"expiring_date_for_pending_booking\": \"<string>\",\n      \"real_arrival\": \"<string>\",\n      \"real_departure\": \"<string>\",\n      \"real_arrival_format\": \"<string>\",\n      \"real_departure_format\": \"<string>\",\n      \"date\": \"<string>\",\n      \"hour\": \"<integer>\",\n      \"days\": \"<string>\",\n      \"hours\": \"<integer>\",\n      \"surname\": \"<string>\",\n      \"name\": \"<string>\",\n      \"number\": \"<string>\",\n      \"css_class\": \"<string>\",\n      \"balance\": \"<number>\",\n      \"arrival_passed\": \"<boolean>\",\n      \"departure_passed\": \"<boolean>\",\n      \"is_early_arrival\": \"<integer>\",\n      \"is_late_departure\": \"<integer>\",\n      \"labels\": \"<string>\",\n      \"adults\": \"<integer>\",\n      \"children\": \"<integer>\",\n      \"payment\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"amount_formatted\": \"<string>\",\n      \"service_total\": \"<string>\",\n      \"amount_total\": \"<string>\",\n      \"source_id\": \"<integer>\",\n      \"source_name\": \"<string>\",\n      \"status_name\": \"<string>\",\n      \"booking_number\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"board\": \"<string>\",\n      \"show_board\": \"<boolean>\",\n      \"customer\": \"<string>\",\n      \"source\": \"<string>\",\n      \"start_date\": \"<string>\",\n      \"final_date\": \"<string>\",\n      \"plan\": \"<string>\",\n      \"is_long\": \"<integer>\",\n      \"room_id\": \"<string>\",\n      \"dual_roomtype_id\": \"<string>\",\n      \"unread\": \"<boolean>\"\n    },\n    {\n      \"booking_id\": \"<string>\",\n      \"status_id\": \"<integer>\",\n      \"expiring_date_for_pending_booking\": \"<string>\",\n      \"real_arrival\": \"<string>\",\n      \"real_departure\": \"<string>\",\n      \"real_arrival_format\": \"<string>\",\n      \"real_departure_format\": \"<string>\",\n      \"date\": \"<string>\",\n      \"hour\": \"<integer>\",\n      \"days\": \"<string>\",\n      \"hours\": \"<integer>\",\n      \"surname\": \"<string>\",\n      \"name\": \"<string>\",\n      \"number\": \"<string>\",\n      \"css_class\": \"<string>\",\n      \"balance\": \"<number>\",\n      \"arrival_passed\": \"<boolean>\",\n      \"departure_passed\": \"<boolean>\",\n      \"is_early_arrival\": \"<integer>\",\n      \"is_late_departure\": \"<integer>\",\n      \"labels\": \"<string>\",\n      \"adults\": \"<integer>\",\n      \"children\": \"<integer>\",\n      \"payment\": \"<string>\",\n      \"amount\": \"<string>\",\n      \"amount_formatted\": \"<string>\",\n      \"service_total\": \"<string>\",\n      \"amount_total\": \"<string>\",\n      \"source_id\": \"<integer>\",\n      \"source_name\": \"<string>\",\n      \"status_name\": \"<string>\",\n      \"booking_number\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"notes\": \"<string>\",\n      \"board\": \"<string>\",\n      \"show_board\": \"<boolean>\",\n      \"customer\": \"<string>\",\n      \"source\": \"<string>\",\n      \"start_date\": \"<string>\",\n      \"final_date\": \"<string>\",\n      \"plan\": \"<string>\",\n      \"is_long\": \"<integer>\",\n      \"room_id\": \"<string>\",\n      \"dual_roomtype_id\": \"<string>\",\n      \"unread\": \"<boolean>\"\n    }\n  ],\n  \"closures\": \"<array>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "invoices",
+			"item": [
+				{
+					"name": "invoice_pdf",
+					"item": [
+						{
+							"name": "Скачивание счета в формате PDF",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "<string>",
+										"description": "(Required) "
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"invoice_id\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/invoices/invoice_pdf?lang=<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"invoices",
+										"invoice_pdf"
+									],
+									"query": [
+										{
+											"key": "lang",
+											"value": "<string>",
+											"description": "(Required) Язык (ru - русский, en - английский)"
+										}
+									]
+								},
+								"description": "<p>Метод API позволяет получить ссылку на скачивание счета в формате PDF.</p>"
+							},
+							"response": [
+								{
+									"name": "Результат запроса",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "<string>",
+												"description": "(Required) "
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"invoice_id\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/invoices/invoice_pdf?lang=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"invoices",
+												"invoice_pdf"
+											],
+											"query": [
+												{
+													"key": "lang",
+													"value": "<string>",
+													"description": "(Required) Язык (ru - русский, en - английский)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "<string>"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "finance",
+			"item": [
+				{
+					"name": "items",
+					"item": [
+						{
+							"name": "Получить список статей движения денежных средств",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/finance/items",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"finance",
+										"items"
+									]
+								},
+								"description": "Метод API позволяет получить список статей движения денежных средств в отеле."
+							},
+							"response": [
+								{
+									"name": "Список статей движения денежных средств",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/finance/items",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"finance",
+												"items"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"items\": [\n    {\n      \"id\": \"<string>\",\n      \"type_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"read_only\": \"<string>\",\n      \"create_date\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"read_only\": \"<string>\",\n      \"create_date\": \"<string>\"\n    }\n  ],\n  \"hotel_payment_systems\": \"<array>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "details",
+					"item": [
+						{
+							"name": "Получить список юрлиц отеля",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/finance/details",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"finance",
+										"details"
+									]
+								},
+								"description": "Метод API позволяет получить список юрлиц отеля."
+							},
+							"response": [
+								{
+									"name": "Список юрлиц отеля",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/finance/details",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"finance",
+												"details"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"suppliers\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"is_hotel_legal_entity\": \"<string>\",\n      \"name\": \"<string>\",\n      \"law_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"site\": \"<string>\",\n      \"country_id\": \"<string>\",\n      \"country_name\": \"<string>\",\n      \"city\": \"<string>\",\n      \"address\": \"<string>\",\n      \"law_address\": \"<string>\",\n      \"inn\": \"<string>\",\n      \"kpp\": \"<string>\",\n      \"account\": \"<string>\",\n      \"correspondent_account\": \"<string>\",\n      \"bik\": \"<string>\",\n      \"bank\": \"<string>\",\n      \"ogrn\": \"<string>\",\n      \"ceo\": \"<string>\",\n      \"accountant\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"is_agency\": \"<string>\",\n      \"commission\": \"<string>\",\n      \"not_pay_commission\": \"<string>\",\n      \"deleted\": \"<string>\",\n      \"extra\": {\n        \"nds\": {\n          \"res\": {\n            \"description\": \"Услуга проживание\"\n          },\n          \"<key>\": {\n            \"description\": \"ID доп. услуги\"\n          }\n        },\n        \"tax_system\": {\n          \"res\": {\n            \"description\": \"Проживание\"\n          },\n          \"<key>\": {\n            \"description\": \"ID доп. услуги\"\n          }\n        }\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"is_hotel_legal_entity\": \"<string>\",\n      \"name\": \"<string>\",\n      \"law_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"fax\": \"<string>\",\n      \"site\": \"<string>\",\n      \"country_id\": \"<string>\",\n      \"country_name\": \"<string>\",\n      \"city\": \"<string>\",\n      \"address\": \"<string>\",\n      \"law_address\": \"<string>\",\n      \"inn\": \"<string>\",\n      \"kpp\": \"<string>\",\n      \"account\": \"<string>\",\n      \"correspondent_account\": \"<string>\",\n      \"bik\": \"<string>\",\n      \"bank\": \"<string>\",\n      \"ogrn\": \"<string>\",\n      \"ceo\": \"<string>\",\n      \"accountant\": \"<string>\",\n      \"comments\": \"<string>\",\n      \"is_agency\": \"<string>\",\n      \"commission\": \"<string>\",\n      \"not_pay_commission\": \"<string>\",\n      \"deleted\": \"<string>\",\n      \"extra\": {\n        \"nds\": {\n          \"res\": {\n            \"description\": \"Услуга проживание\"\n          },\n          \"<key>\": {\n            \"description\": \"ID доп. услуги\"\n          }\n        },\n        \"tax_system\": {\n          \"res\": {\n            \"description\": \"Проживание\"\n          },\n          \"<key>\": {\n            \"description\": \"ID доп. услуги\"\n          }\n        }\n      }\n    }\n  ],\n  \"model_id\": \"<string>\",\n  \"flash_success\": \"<array>\",\n  \"flash_error\": \"<array>\",\n  \"services\": \"<array>\",\n  \"hotel_payment_systems\": \"<array>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "dashboard",
+			"item": [
+				{
+					"name": "Получить бронирования",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/dashboard?create_from=<string>&create_to=<string>&arrival_from=<string>&arrival_to=<string>&departure_from=<string>&departure_to=<string>&cancellation_from=<string>&cancellation_to=<string>&advanced_search=<integer>&name=<string>&surname=<string>&phone=<string>&email=<string>&sources=<string>,<string>&status_ids=<integer>,<integer>&discount_reason_ids=<integer>,<integer>&cancel_reason_ids=<integer>,<integer>&tags_ids=<integer>,<integer>&marketing_option_ids=<integer>,<integer>&roomtypes=<string>&c=10&page=<integer>&order_by=create_date.asc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"dashboard"
+							],
+							"query": [
+								{
+									"key": "create_from",
+									"value": "<string>",
+									"description": "Начало периода дат создания бронирования (d.m.Y)"
+								},
+								{
+									"key": "create_to",
+									"value": "<string>",
+									"description": "Конец периода дат создания бронирования (d.m.Y)"
+								},
+								{
+									"key": "arrival_from",
+									"value": "<string>",
+									"description": "Начало периода дат заезда (d.m.Y)"
+								},
+								{
+									"key": "arrival_to",
+									"value": "<string>",
+									"description": "Конец периода дат заезда (d.m.Y)"
+								},
+								{
+									"key": "departure_from",
+									"value": "<string>",
+									"description": "Начало периода дат выезда (d.m.Y)"
+								},
+								{
+									"key": "departure_to",
+									"value": "<string>",
+									"description": "Конец периода дат выезда (d.m.Y)"
+								},
+								{
+									"key": "cancellation_from",
+									"value": "<string>",
+									"description": "Начало периода дат отмены (d.m.Y)"
+								},
+								{
+									"key": "cancellation_to",
+									"value": "<string>",
+									"description": "Конец периода дат отмены (d.m.Y)"
+								},
+								{
+									"key": "advanced_search",
+									"value": "<integer>",
+									"description": "(Required) Версия расширенного поиска (1 - старая, 2 - новая)"
+								},
+								{
+									"key": "name",
+									"value": "<string>",
+									"description": "Имя заказчика или гостя"
+								},
+								{
+									"key": "surname",
+									"value": "<string>",
+									"description": "Фамилия заказчика или гостя"
+								},
+								{
+									"key": "phone",
+									"value": "<string>",
+									"description": "Номер телефона заказчика или гостя"
+								},
+								{
+									"key": "email",
+									"value": "<string>",
+									"description": "Эл. почта заказчика или гостя"
+								},
+								{
+									"key": "sources",
+									"value": "<string>,<string>",
+									"description": "Источники бронирования через запятую.<br/> source_0 - Прямое<br/> source_{id} - ID канала<br/> agency_{id} - ID агентства<br/> supplier_{id} - ID компании<br/>"
+								},
+								{
+									"key": "status_ids",
+									"value": "<integer>,<integer>",
+									"description": "ID статусов бронирования через запятую:<br/> 1 - Новое, 2 - Отменено, 3 - Заселен, 4 - Выехал, 5 - Проверено, 6 - На рассмотрении"
+								},
+								{
+									"key": "discount_reason_ids",
+									"value": "<integer>,<integer>",
+									"description": "ID причин скидки"
+								},
+								{
+									"key": "cancel_reason_ids",
+									"value": "<integer>,<integer>",
+									"description": "ID причин отмены"
+								},
+								{
+									"key": "tags_ids",
+									"value": "<integer>,<integer>",
+									"description": "ID тегов гостей"
+								},
+								{
+									"key": "marketing_option_ids",
+									"value": "<integer>,<integer>",
+									"description": "ID значений маркетинговых полей \"Откуда вы о нас узнали\" и \"Способ бронирования\""
+								},
+								{
+									"key": "roomtypes",
+									"value": "<string>",
+									"description": "ID категорий номеров"
+								},
+								{
+									"key": "c",
+									"value": "10",
+									"description": "Кол-во элементов на странице (по-умолчанию 10, максимум 100)"
+								},
+								{
+									"key": "page",
+									"value": "<integer>",
+									"description": "Текущая страница"
+								},
+								{
+									"key": "order_by",
+									"value": "create_date.asc",
+									"description": "<p>Поле для сортировки и порядок: create_date.asc - По дате создания по возрастанию (сначала идут старые брони) create_date.desc - По дате создания по убыванию (сначала идут новые брони) arrival_date.asc - По дате заезда по возрастанию arrival_date.desc - По дате заезда по убыванию departure_date.asc - По дате выезда по возрастанию departure_date.desc - По дате выезда по убыванию</p>"
+								}
+							]
+						},
+						"description": "<p>Метод API позволяет получить бронирования по различным фильтрам.</p> <p>В ответе возвращается <b>максимум 100 бронирований</b>. Если критериям поиска соответствует бо&#x301;льшее количество элементов, необходимо использовать постраничную навигацию и выгружать данные в несколько запросов. В каждом ответе есть секция <b>pages</b>, в которой указывается общее кол-во бронирований, текущая страница, сколько страниц всего и т. д. Подробнее смотрите описание GetBookingsResponse.</p> <p>Когда необходимо выгрузить исторические данные за длительный период и когда вы используете фильтр по дате, рекомендуется в параметре order_by указывать порядок сортировки по возрастанию (ASC). Потому что пока выполняются запросы ко всем страницам, могут появится новые бронирования, соответствующие критериям поиска. Сортировка по возрастанию даты в данном случае обезопасит вас от потери данных, т. к. новые бронирования будут на последней странице. Если order_by не указан, по-умолчанию используется сортировка по дате создания по возрастанию (create_date.asc).</p> <p>В запросе требуется обязательно указать параметр advanced_search=2, а также использовать как минмум один из имеющихся фильтров по дате, статусу и т. д.</p>"
+					},
+					"response": [
+						{
+							"name": "Список бронирований",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/dashboard?create_from=<string>&create_to=<string>&arrival_from=<string>&arrival_to=<string>&departure_from=<string>&departure_to=<string>&cancellation_from=<string>&cancellation_to=<string>&advanced_search=<integer>&name=<string>&surname=<string>&phone=<string>&email=<string>&sources=<string>,<string>&status_ids=<integer>,<integer>&discount_reason_ids=<integer>,<integer>&cancel_reason_ids=<integer>,<integer>&tags_ids=<integer>,<integer>&marketing_option_ids=<integer>,<integer>&roomtypes=<string>&c=10&page=<integer>&order_by=create_date.asc",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"dashboard"
+									],
+									"query": [
+										{
+											"key": "create_from",
+											"value": "<string>",
+											"description": "Начало периода дат создания бронирования (d.m.Y)"
+										},
+										{
+											"key": "create_to",
+											"value": "<string>",
+											"description": "Конец периода дат создания бронирования (d.m.Y)"
+										},
+										{
+											"key": "arrival_from",
+											"value": "<string>",
+											"description": "Начало периода дат заезда (d.m.Y)"
+										},
+										{
+											"key": "arrival_to",
+											"value": "<string>",
+											"description": "Конец периода дат заезда (d.m.Y)"
+										},
+										{
+											"key": "departure_from",
+											"value": "<string>",
+											"description": "Начало периода дат выезда (d.m.Y)"
+										},
+										{
+											"key": "departure_to",
+											"value": "<string>",
+											"description": "Конец периода дат выезда (d.m.Y)"
+										},
+										{
+											"key": "cancellation_from",
+											"value": "<string>",
+											"description": "Начало периода дат отмены (d.m.Y)"
+										},
+										{
+											"key": "cancellation_to",
+											"value": "<string>",
+											"description": "Конец периода дат отмены (d.m.Y)"
+										},
+										{
+											"key": "advanced_search",
+											"value": "<integer>",
+											"description": "(Required) Версия расширенного поиска (1 - старая, 2 - новая)"
+										},
+										{
+											"key": "name",
+											"value": "<string>",
+											"description": "Имя заказчика или гостя"
+										},
+										{
+											"key": "surname",
+											"value": "<string>",
+											"description": "Фамилия заказчика или гостя"
+										},
+										{
+											"key": "phone",
+											"value": "<string>",
+											"description": "Номер телефона заказчика или гостя"
+										},
+										{
+											"key": "email",
+											"value": "<string>",
+											"description": "Эл. почта заказчика или гостя"
+										},
+										{
+											"key": "sources",
+											"value": "<string>,<string>",
+											"description": "Источники бронирования через запятую.<br/> source_0 - Прямое<br/> source_{id} - ID канала<br/> agency_{id} - ID агентства<br/> supplier_{id} - ID компании<br/>"
+										},
+										{
+											"key": "status_ids",
+											"value": "<integer>,<integer>",
+											"description": "ID статусов бронирования через запятую:<br/> 1 - Новое, 2 - Отменено, 3 - Заселен, 4 - Выехал, 5 - Проверено, 6 - На рассмотрении"
+										},
+										{
+											"key": "discount_reason_ids",
+											"value": "<integer>,<integer>",
+											"description": "ID причин скидки"
+										},
+										{
+											"key": "cancel_reason_ids",
+											"value": "<integer>,<integer>",
+											"description": "ID причин отмены"
+										},
+										{
+											"key": "tags_ids",
+											"value": "<integer>,<integer>",
+											"description": "ID тегов гостей"
+										},
+										{
+											"key": "marketing_option_ids",
+											"value": "<integer>,<integer>",
+											"description": "ID значений маркетинговых полей \"Откуда вы о нас узнали\" и \"Способ бронирования\""
+										},
+										{
+											"key": "roomtypes",
+											"value": "<string>",
+											"description": "ID категорий номеров"
+										},
+										{
+											"key": "c",
+											"value": "10",
+											"description": "Кол-во элементов на странице (по-умолчанию 10, максимум 100)"
+										},
+										{
+											"key": "page",
+											"value": "<integer>",
+											"description": "Текущая страница"
+										},
+										{
+											"key": "order_by",
+											"value": "create_date.asc",
+											"description": "<p>Поле для сортировки и порядок: create_date.asc - По дате создания по возрастанию (сначала идут старые брони) create_date.desc - По дате создания по убыванию (сначала идут новые брони) arrival_date.asc - По дате заезда по возрастанию arrival_date.desc - По дате заезда по убыванию departure_date.asc - По дате выезда по возрастанию departure_date.desc - По дате выезда по убыванию</p>"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"bookings\": [\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"source_id\": \"<string>\",\n      \"source_name\": \"<string>\",\n      \"source_icon\": \"<string>\",\n      \"status_id\": \"<string>\",\n      \"status_name\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"agency_id\": \"<string>\",\n      \"supplier_id\": \"<string>\",\n      \"supplier_name\": \"<string>\",\n      \"agency_name\": \"<string>\",\n      \"agency_commission\": \"<number>\",\n      \"agency_not_pay_services_commission\": \"<boolean>\",\n      \"number\": \"<string>\",\n      \"create_date\": \"<date>\",\n      \"arrival\": \"<date>\",\n      \"departure\": \"<string>\",\n      \"name\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"link_id\": \"<string>\",\n      \"prices_services_total\": \"<string>\",\n      \"prices_rooms_total\": \"<string>\",\n      \"payments_total\": \"<string>\",\n      \"provided_total\": \"<string>\",\n      \"plan_name\": \"<string>\",\n      \"initial_room_type_name\": \"<string>\",\n      \"current_room\": \"<string>\",\n      \"early_check_in\": \"<boolean>\",\n      \"late_check_out\": \"<boolean>\",\n      \"unread\": \"<string>\",\n      \"extra\": {\n        \"adults\": \"<integer>\",\n        \"children\": \"<integer>\"\n      },\n      \"email\": \"<string>\",\n      \"hotel\": {}\n    },\n    {\n      \"id\": \"<string>\",\n      \"hotel_id\": \"<string>\",\n      \"source_id\": \"<string>\",\n      \"source_name\": \"<string>\",\n      \"source_icon\": \"<string>\",\n      \"status_id\": \"<string>\",\n      \"status_name\": \"<string>\",\n      \"customer_id\": \"<string>\",\n      \"agency_id\": \"<string>\",\n      \"supplier_id\": \"<string>\",\n      \"supplier_name\": \"<string>\",\n      \"agency_name\": \"<string>\",\n      \"agency_commission\": \"<number>\",\n      \"agency_not_pay_services_commission\": \"<boolean>\",\n      \"number\": \"<string>\",\n      \"create_date\": \"<date>\",\n      \"arrival\": \"<date>\",\n      \"departure\": \"<string>\",\n      \"name\": \"<string>\",\n      \"surname\": \"<string>\",\n      \"phone\": \"<string>\",\n      \"link_id\": \"<string>\",\n      \"prices_services_total\": \"<string>\",\n      \"prices_rooms_total\": \"<string>\",\n      \"payments_total\": \"<string>\",\n      \"provided_total\": \"<string>\",\n      \"plan_name\": \"<string>\",\n      \"initial_room_type_name\": \"<string>\",\n      \"current_room\": \"<string>\",\n      \"early_check_in\": \"<boolean>\",\n      \"late_check_out\": \"<boolean>\",\n      \"unread\": \"<string>\",\n      \"extra\": {\n        \"adults\": \"<integer>\",\n        \"children\": \"<integer>\"\n      },\n      \"email\": \"<string>\",\n      \"hotel\": {}\n    }\n  ],\n  \"pages\": {\n    \"total_items\": \"<integer>\",\n    \"items_per_page\": \"<integer>\",\n    \"total_pages\": \"<integer>\",\n    \"current_page\": \"<integer>\",\n    \"current_first_item\": \"<integer>\",\n    \"current_last_item\": \"<integer>\",\n    \"previous_page\": \"<integer>\",\n    \"next_page\": \"<integer>\",\n    \"first_page\": \"<integer>\",\n    \"last_page\": \"<integer>\",\n    \"offset\": \"<integer>\"\n  }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "booking",
+			"item": [
+				{
+					"name": "general",
+					"item": [
+						{
+							"name": "{booking_id}",
+							"item": [
+								{
+									"name": "Получить бронирование по ID",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/booking/general/:booking_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"general",
+												":booking_id"
+											],
+											"variable": [
+												{
+													"key": "booking_id",
+													"value": "<integer>"
+												}
+											]
+										},
+										"description": "Метод API позволяет получить бронирование по ID"
+									},
+									"response": [
+										{
+											"name": "Основная информация о бронировании",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/booking/general/:booking_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"booking",
+														"general",
+														":booking_id"
+													],
+													"variable": [
+														{
+															"key": "booking_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"booking\": {\n    \"id\": \"<string>\",\n    \"hotel_id\": \"<string>\",\n    \"source_id\": \"<string>\",\n    \"source_name\": \"<string>\",\n    \"source_icon\": \"<string>\",\n    \"status_id\": \"<string>\",\n    \"status_name\": \"<string>\",\n    \"status_color\": \"<string>\",\n    \"customer_id\": \"<string>\",\n    \"agency_id\": \"<string>\",\n    \"supplier_id\": \"<string>\",\n    \"supplier_name\": \"<string>\",\n    \"agency_name\": \"<string>\",\n    \"agency_commission\": \"<number>\",\n    \"agency_not_pay_services_commission\": \"<boolean>\",\n    \"source_commission\": \"<string>\",\n    \"ancillary_commission\": \"<string>\",\n    \"number\": \"<string>\",\n    \"create_date\": \"<date>\",\n    \"arrival\": \"<date>\",\n    \"departure\": \"<string>\",\n    \"real_arrival\": \"<date>\",\n    \"real_departure\": \"<string>\",\n    \"original_arrival\": \"<date>\",\n    \"original_departure\": \"<string>\",\n    \"amount\": \"<string>\",\n    \"amount_provider\": \"<string>\",\n    \"is_blocked\": \"<string>\",\n    \"name\": \"<string>\",\n    \"surname\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"notes\": \"<string>\",\n    \"link_id\": \"<string>\",\n    \"external_res_id\": \"<string>\",\n    \"provider_booking_id\": \"<string>\",\n    \"extra_provider\": \"<string>\",\n    \"cancel_date\": \"<string>\",\n    \"discount_type\": \"<string>\",\n    \"discount_amount\": \"<string>\",\n    \"discount_reason_id\": \"<string>\",\n    \"discount_reason\": \"<string>\",\n    \"guarantee\": \"<string>\",\n    \"is_guarantee_encrypted\": \"<string>\",\n    \"prices_array\": \"<string>\",\n    \"prices_services_total\": \"<string>\",\n    \"prices_rooms_total\": \"<string>\",\n    \"payments_total\": \"<string>\",\n    \"provided_total\": \"<string>\",\n    \"customers_total\": \"<string>\",\n    \"plan_name\": \"<string>\",\n    \"initial_room_type_name\": \"<string>\",\n    \"current_room\": \"<string>\",\n    \"current_room_clean_status\": \"<string>\",\n    \"room_name\": \"<string>\",\n    \"has_linked_bookings\": \"<string>\",\n    \"has_linked_cancelled_bookings\": \"<string>\",\n    \"early_check_in\": \"<string>\",\n    \"late_check_out\": \"<string>\",\n    \"unread\": \"<string>\",\n    \"extra\": {\n      \"adults\": \"<integer>\",\n      \"children\": \"<integer>\"\n    },\n    \"created_user\": {},\n    \"created_user_id\": \"<string>\",\n    \"created_user_name\": \"<string>\",\n    \"created_user_surname\": \"<string>\",\n    \"group_id\": {\n      \"description\": \"ID группы\"\n    },\n    \"group_code\": {\n      \"description\": \"Код группы\"\n    },\n    \"group_name\": {\n      \"description\": \"Название группы\"\n    },\n    \"group_create_date\": {\n      \"description\": \"Дата создания группы\"\n    },\n    \"actual_price\": {},\n    \"email\": \"<string>\",\n    \"customer_notes\": \"<string>\",\n    \"hotel\": {},\n    \"ota_info\": \"<string>\",\n    \"prices\": [\n      {\n        \"id\": \"<string>\",\n        \"hotel_id\": \"<string>\",\n        \"booking_id\": \"<string>\",\n        \"plan_id\": \"<string>\",\n        \"room_type_id\": \"<string>\",\n        \"real_room_type_id\": \"<string>\",\n        \"room_id\": \"<string>\",\n        \"date\": \"<string>\",\n        \"arrival_date\": \"<string>\",\n        \"arrival_time\": \"<string>\",\n        \"departure_time\": \"<string>\",\n        \"price\": \"<string>\",\n        \"policy\": \"<string>\",\n        \"deadline\": \"<string>\",\n        \"room_type_name\": \"<string>\",\n        \"room_name\": \"<string>\",\n        \"service_name\": \"<string>\",\n        \"plan_name\": \"<string>\",\n        \"plan_exists\": \"<integer>\",\n        \"adults\": \"<string>\",\n        \"children\": \"<string>\",\n        \"initial_room_type_id\": \"<string>\",\n        \"initial_room_type_name\": \"<string>\",\n        \"real_initial_room_type_id\": \"<string>\",\n        \"provided\": \"<string>\",\n        \"service_id\": \"<string>\",\n        \"quantity\": \"<string>\",\n        \"discount_type\": \"<string>\",\n        \"discount_amount\": \"<string>\",\n        \"service_included\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"hotel_id\": \"<string>\",\n        \"booking_id\": \"<string>\",\n        \"plan_id\": \"<string>\",\n        \"room_type_id\": \"<string>\",\n        \"real_room_type_id\": \"<string>\",\n        \"room_id\": \"<string>\",\n        \"date\": \"<string>\",\n        \"arrival_date\": \"<string>\",\n        \"arrival_time\": \"<string>\",\n        \"departure_time\": \"<string>\",\n        \"price\": \"<string>\",\n        \"policy\": \"<string>\",\n        \"deadline\": \"<string>\",\n        \"room_type_name\": \"<string>\",\n        \"room_name\": \"<string>\",\n        \"service_name\": \"<string>\",\n        \"plan_name\": \"<string>\",\n        \"plan_exists\": \"<integer>\",\n        \"adults\": \"<string>\",\n        \"children\": \"<string>\",\n        \"initial_room_type_id\": \"<string>\",\n        \"initial_room_type_name\": \"<string>\",\n        \"real_initial_room_type_id\": \"<string>\",\n        \"provided\": \"<string>\",\n        \"service_id\": \"<string>\",\n        \"quantity\": \"<string>\",\n        \"discount_type\": \"<string>\",\n        \"discount_amount\": \"<string>\",\n        \"service_included\": \"<string>\"\n      }\n    ],\n    \"prices_all\": [\n      {\n        \"id\": \"<string>\",\n        \"hotel_id\": \"<string>\",\n        \"booking_id\": \"<string>\",\n        \"plan_id\": \"<string>\",\n        \"room_type_id\": \"<string>\",\n        \"real_room_type_id\": \"<string>\",\n        \"room_id\": \"<string>\",\n        \"date\": \"<string>\",\n        \"arrival_date\": \"<string>\",\n        \"arrival_time\": \"<string>\",\n        \"departure_time\": \"<string>\",\n        \"price\": \"<string>\",\n        \"policy\": \"<string>\",\n        \"deadline\": \"<string>\",\n        \"room_type_name\": \"<string>\",\n        \"room_name\": \"<string>\",\n        \"service_name\": \"<string>\",\n        \"plan_name\": \"<string>\",\n        \"plan_exists\": \"<integer>\",\n        \"adults\": \"<string>\",\n        \"children\": \"<string>\",\n        \"initial_room_type_id\": \"<string>\",\n        \"initial_room_type_name\": \"<string>\",\n        \"real_initial_room_type_id\": \"<string>\",\n        \"provided\": \"<string>\",\n        \"service_id\": \"<string>\",\n        \"quantity\": \"<string>\",\n        \"discount_type\": \"<string>\",\n        \"discount_amount\": \"<string>\",\n        \"service_included\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"hotel_id\": \"<string>\",\n        \"booking_id\": \"<string>\",\n        \"plan_id\": \"<string>\",\n        \"room_type_id\": \"<string>\",\n        \"real_room_type_id\": \"<string>\",\n        \"room_id\": \"<string>\",\n        \"date\": \"<string>\",\n        \"arrival_date\": \"<string>\",\n        \"arrival_time\": \"<string>\",\n        \"departure_time\": \"<string>\",\n        \"price\": \"<string>\",\n        \"policy\": \"<string>\",\n        \"deadline\": \"<string>\",\n        \"room_type_name\": \"<string>\",\n        \"room_name\": \"<string>\",\n        \"service_name\": \"<string>\",\n        \"plan_name\": \"<string>\",\n        \"plan_exists\": \"<integer>\",\n        \"adults\": \"<string>\",\n        \"children\": \"<string>\",\n        \"initial_room_type_id\": \"<string>\",\n        \"initial_room_type_name\": \"<string>\",\n        \"real_initial_room_type_id\": \"<string>\",\n        \"provided\": \"<string>\",\n        \"service_id\": \"<string>\",\n        \"quantity\": \"<string>\",\n        \"discount_type\": \"<string>\",\n        \"discount_amount\": \"<string>\",\n        \"service_included\": \"<string>\"\n      }\n    ],\n    \"customer\": {},\n    \"cancel_reason\": {},\n    \"discount_reason_relation\": {},\n    \"supplier\": {},\n    \"board_nutritia\": \"<string>\",\n    \"online_warranty_deadline_date\": \"<string>\",\n    \"auto_booking_cancel\": \"<string>\",\n    \"source\": {}\n  },\n  \"pending_data\": \"<array>\",\n  \"pending_types\": \"<array>\",\n  \"rooms_by_roomstay\": \"<array>\",\n  \"adults\": \"<integer>\",\n  \"children\": \"<integer>\",\n  \"first_price\": {},\n  \"electronic_locks\": \"<array>\",\n  \"electronic_lock_keys\": \"<array>\",\n  \"merged_rooms\": \"<array>\",\n  \"plans\": \"<array>\",\n  \"statuses\": \"<array>\",\n  \"linked_bookings\": \"<array>\",\n  \"notes\": \"<array>\",\n  \"notes_archive\": \"<array>\",\n  \"services_notes_json\": \"<string>\",\n  \"services\": \"<array>\",\n  \"service_prices_json\": \"<string>\",\n  \"services_existing_prices\": {\n    \"<key>\": {\n      \"dates\": {\n        \"<key>\": {\n          \"quantity\": \"<string>\",\n          \"price\": \"<string>\"\n        },\n        \"sum\": \"<number>\",\n        \"full_quantity\": \"<number>\",\n        \"service_name\": \"<string>\"\n      }\n    }\n  },\n  \"services_existing_prices_json\": \"<string>\",\n  \"included_services_existing_prices_json\": \"<string>\",\n  \"services_packages\": {},\n  \"total_sum\": \"<number>\",\n  \"past_booking\": \"<boolean>\",\n  \"is_deadline\": \"<boolean>\",\n  \"booking_has_provided_services\": \"<boolean>\",\n  \"booking_has_services\": \"<boolean>\",\n  \"departure_not_change_prices\": \"<boolean>\",\n  \"is_not_departured\": \"<boolean>\",\n  \"is_not_arrived_by_time\": \"<boolean>\",\n  \"is_not_arrived_by_day\": \"<boolean>\",\n  \"room_name\": \"<string>\",\n  \"booking_rooms\": {},\n  \"real_initial_room_type_id\": \"<string>\",\n  \"templates\": \"<array>\",\n  \"predefined_templates\": \"<array>\",\n  \"nights\": \"<integer>\",\n  \"agencies\": \"<array>\",\n  \"suppliers\": \"<array>\",\n  \"marketing_groups\": \"<array>\",\n  \"cancel_reasons\": \"<array>\",\n  \"discount_reasons\": \"<array>\",\n  \"preferences\": \"<array>\",\n  \"marketing_preferences\": \"<array>\",\n  \"fine\": \"<boolean>\",\n  \"booking_group_numbers_links\": \"<array>\",\n  \"current_labels\": \"<array>\",\n  \"current_labels_count\": \"<integer>\",\n  \"tags\": \"<array>\",\n  \"is_edit\": \"<boolean>\",\n  \"is_no_show_allowed\": \"<boolean>\",\n  \"is_invalid_cc_cancel_allowed\": \"<boolean>\",\n  \"user_has_access_to_cancel_checkin\": \"<boolean>\",\n  \"user_has_access_to_change_status_backward\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "edit_customer",
+					"item": [
+						{
+							"name": "Редактировать информацию о госте",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"form_action\": \"<string>\",\n  \"booking_id\": \"<number>\",\n  \"customer_id\": \"<number>\",\n  \"guest_type\": {\n    \"description\": \"Тип гостя (1 - взрослый, 2 - ребенок)\",\n    \"example\": 1\n  },\n  \"gender\": {\n    \"description\": \"Пол (1 - мужской, 2 - женский)\",\n    \"example\": 1\n  },\n  \"citizenship_id\": {\n    \"description\": \"ID страны, гражданином которой является гость\",\n    \"example\": 171\n  },\n  \"surname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"middlename\": {\n    \"description\": \"Отчество\",\n    \"example\": \"Иванович\"\n  },\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"birthdate\": \"<string>\",\n  \"birth_country_name\": \"<string>\",\n  \"birth_country_id\": \"<number>\",\n  \"birth_region_name\": \"<string>\",\n  \"birth_area_name\": \"<string>\",\n  \"birth_city_name\": \"<string>\",\n  \"birth_locality_name\": \"<string>\",\n  \"document_type\": \"<string>\",\n  \"document_series\": {\n    \"description\": \"Серия\",\n    \"example\": 5709\n  },\n  \"document_number\": {\n    \"description\": \"Номер\",\n    \"example\": 123456\n  },\n  \"document_unit_code\": {\n    \"description\": \"Код подразделения\",\n    \"example\": \"590-021\"\n  },\n  \"document_organization_issued\": {\n    \"description\": \"Кем выдан\",\n    \"example\": \"ОТДЕЛЕНИЕ УФМС РОССИИ\"\n  },\n  \"document_date_issued\": {\n    \"description\": \"Дата выдачи\",\n    \"example\": \"11-11-2021\"\n  },\n  \"document_date_end\": {\n    \"description\": \"Срок действия\"\n  },\n  \"passport_scan\": \"<string>\",\n  \"address_free\": {\n    \"description\": \"Адрес в свободной форме\"\n  },\n  \"address_fias\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"address_region\": \"<string>\",\n  \"address_region_only\": \"<string>\",\n  \"address_area_only\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address_street_name\": \"<string>\",\n  \"address_house\": \"<string>\",\n  \"address_housing\": \"<string>\",\n  \"address_flat\": \"<string>\",\n  \"address_date\": \"<string>\",\n  \"migcard_series\": \"<string>\",\n  \"migcard_number\": \"<string>\",\n  \"migcard_date_arrival\": \"<string>\",\n  \"migcard_kpp\": \"<string>\",\n  \"migcard_kpp_code\": \"<string>\",\n  \"migcard_date_start\": \"<string>\",\n  \"migcard_date_end\": \"<string>\",\n  \"representative_customer_id\": \"<string>\",\n  \"relationtype_id\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/edit_customer",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"edit_customer"
+									]
+								},
+								"description": "Метод API позволяет отредактировать информацию госте, а также загрузить сканы его документов."
+							},
+							"response": [
+								{
+									"name": "Ответ",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"form_action\": \"<string>\",\n  \"booking_id\": \"<number>\",\n  \"customer_id\": \"<number>\",\n  \"guest_type\": {\n    \"description\": \"Тип гостя (1 - взрослый, 2 - ребенок)\",\n    \"example\": 1\n  },\n  \"gender\": {\n    \"description\": \"Пол (1 - мужской, 2 - женский)\",\n    \"example\": 1\n  },\n  \"citizenship_id\": {\n    \"description\": \"ID страны, гражданином которой является гость\",\n    \"example\": 171\n  },\n  \"surname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"middlename\": {\n    \"description\": \"Отчество\",\n    \"example\": \"Иванович\"\n  },\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"birthdate\": \"<string>\",\n  \"birth_country_name\": \"<string>\",\n  \"birth_country_id\": \"<number>\",\n  \"birth_region_name\": \"<string>\",\n  \"birth_area_name\": \"<string>\",\n  \"birth_city_name\": \"<string>\",\n  \"birth_locality_name\": \"<string>\",\n  \"document_type\": \"<string>\",\n  \"document_series\": {\n    \"description\": \"Серия\",\n    \"example\": 5709\n  },\n  \"document_number\": {\n    \"description\": \"Номер\",\n    \"example\": 123456\n  },\n  \"document_unit_code\": {\n    \"description\": \"Код подразделения\",\n    \"example\": \"590-021\"\n  },\n  \"document_organization_issued\": {\n    \"description\": \"Кем выдан\",\n    \"example\": \"ОТДЕЛЕНИЕ УФМС РОССИИ\"\n  },\n  \"document_date_issued\": {\n    \"description\": \"Дата выдачи\",\n    \"example\": \"11-11-2021\"\n  },\n  \"document_date_end\": {\n    \"description\": \"Срок действия\"\n  },\n  \"passport_scan\": \"<string>\",\n  \"address_free\": {\n    \"description\": \"Адрес в свободной форме\"\n  },\n  \"address_fias\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"address_region\": \"<string>\",\n  \"address_region_only\": \"<string>\",\n  \"address_area_only\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address_street_name\": \"<string>\",\n  \"address_house\": \"<string>\",\n  \"address_housing\": \"<string>\",\n  \"address_flat\": \"<string>\",\n  \"address_date\": \"<string>\",\n  \"migcard_series\": \"<string>\",\n  \"migcard_number\": \"<string>\",\n  \"migcard_date_arrival\": \"<string>\",\n  \"migcard_kpp\": \"<string>\",\n  \"migcard_kpp_code\": \"<string>\",\n  \"migcard_date_start\": \"<string>\",\n  \"migcard_date_end\": \"<string>\",\n  \"representative_customer_id\": \"<string>\",\n  \"relationtype_id\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/edit_customer",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"edit_customer"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "doc",
+					"item": [
+						{
+							"name": "{booking_id}",
+							"item": [
+								{
+									"name": "Скачать заполненный документ",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/booking/doc/:booking_id/?template=<string>&guest=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"doc",
+												":booking_id",
+												""
+											],
+											"query": [
+												{
+													"key": "template",
+													"value": "<string>",
+													"description": "Название шаблона документа"
+												},
+												{
+													"key": "guest",
+													"value": "<integer>",
+													"description": "ID гостя"
+												}
+											],
+											"variable": [
+												{
+													"key": "booking_id",
+													"value": "<integer>"
+												}
+											]
+										},
+										"description": "Метод API позволяет скачать заполненный документ в формате .docx, созданный на основе одного из пользовательских шаблонов документов"
+									},
+									"response": [
+										{
+											"name": "Ответ",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/booking/doc/:booking_id/?template=<string>&guest=<integer>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"booking",
+														"doc",
+														":booking_id",
+														""
+													],
+													"query": [
+														{
+															"key": "template",
+															"value": "<string>",
+															"description": "Название шаблона документа"
+														},
+														{
+															"key": "guest",
+															"value": "<integer>",
+															"description": "ID гостя"
+														}
+													],
+													"variable": [
+														{
+															"key": "booking_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "detach_customer",
+					"item": [
+						{
+							"name": "Удалить гостя из списка",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"booking_id\": \"<number>\",\n  \"customer_id\": \"<number>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/detach_customer",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"detach_customer"
+									]
+								},
+								"description": "Метод API позволяет удалить гостя из списка гостей в картчоке бронирования"
+							},
+							"response": [
+								{
+									"name": "Ответ",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"booking_id\": \"<number>\",\n  \"customer_id\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/detach_customer",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"detach_customer"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "delete_invoice",
+					"item": [
+						{
+							"name": "Удаление счета",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "<string>",
+										"description": "(Required) "
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"invoice_id\": \"<string>\",\n  \"booking_id\": \"<string>\",\n  \"group_id\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/delete_invoice",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"delete_invoice"
+									]
+								},
+								"description": "<p>Метод API позволяет удалить ранее выставленный счет.</p>"
+							},
+							"response": [
+								{
+									"name": "Результат запроса - id удаленного счета",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "<string>",
+												"description": "(Required) "
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"invoice_id\": \"<string>\",\n  \"booking_id\": \"<string>\",\n  \"group_id\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/delete_invoice",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"delete_invoice"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "<string>"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "create_payment",
+					"item": [
+						{
+							"name": "Добавление поступлений",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"booking_id\": \"<string>\",\n  \"group_id\": \"<string>\",\n  \"payment_id\": \"<string>\",\n  \"finance_payment_id\": \"<string>\",\n  \"action\": \"<string>\",\n  \"is_finance\": \"<string>\",\n  \"is_finance_refund\": \"<string>\",\n  \"fiscal_check_printed\": \"<string>\",\n  \"transferred_refund_id\": \"<string>\",\n  \"transfer_refund_sum\": \"<string>\",\n  \"transferred_to_booking_number\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"is_for_booking\": \"<string>\",\n  \"is_supplier\": \"<string>\",\n  \"hotel_supplier_id\": \"<string>\",\n  \"supplier_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"passport\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"services\": {\n    \"booking_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"booking_number\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"create_booking_payment\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"item_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"method_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"subject_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"service_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"service_name\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"amount\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sub_amount\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nds_value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tax_system\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"temp_payment_id\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"paid_date\": \"<string>\",\n  \"paid_date_hour\": \"<string>\",\n  \"paid_date_minute\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/create_payment",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"create_payment"
+									]
+								},
+								"description": "<p>Метод API позволяет добавить в PMS поступления по бронированиям, поступления не по бронированиям и прочие поступления.</p> <p>В секции <b>services</b> каждое свойство является массивом и в этих массивах важен порядок расположения элементов. Например, если есть две услуги: Завтрак с id 1234 по цене 200 рублей и Обед с id 1235 по цене 700 рублей, и вы хотите один платеж ассоциировать с этими двумя доп. услугами, необходимо в service_id через запятую указать id этих услуг, т.е. [1234, 1235], в amount стоимость [200, 700] и т. д. для остальных свойств в <b>services</b></p> <p>Если платеж добавляется к бронированию, параметр is_for_booking должен быть равен 1, в параметрах booking_id в корне запроса и в секции services должны быть переданы ID бронирования и create_booking_payment должен быть равен 1.</p> "
+							},
+							"response": [
+								{
+									"name": "Результат запроса",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"booking_id\": \"<string>\",\n  \"group_id\": \"<string>\",\n  \"payment_id\": \"<string>\",\n  \"finance_payment_id\": \"<string>\",\n  \"action\": \"<string>\",\n  \"is_finance\": \"<string>\",\n  \"is_finance_refund\": \"<string>\",\n  \"fiscal_check_printed\": \"<string>\",\n  \"transferred_refund_id\": \"<string>\",\n  \"transfer_refund_sum\": \"<string>\",\n  \"transferred_to_booking_number\": \"<string>\",\n  \"reason\": \"<string>\",\n  \"is_for_booking\": \"<string>\",\n  \"is_supplier\": \"<string>\",\n  \"hotel_supplier_id\": \"<string>\",\n  \"supplier_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"passport\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"services\": {\n    \"booking_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"booking_number\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"create_booking_payment\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"item_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"method_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"subject_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"service_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"service_name\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"amount\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sub_amount\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"nds_value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tax_system\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"temp_payment_id\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"paid_date\": \"<string>\",\n  \"paid_date_hour\": \"<string>\",\n  \"paid_date_minute\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/create_payment",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"create_payment"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"result\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "create_invoice_invoice",
+					"item": [
+						{
+							"name": "Создание или редактирование счета",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "<string>",
+										"description": "(Required) "
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"booking_id\": \"<string>\",\n  \"group_id\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"invoice_id\": \"<string>\",\n  \"supplier_type_id\": \"<string>\",\n  \"supplier_id\": \"<string>\",\n  \"payer_name\": \"<string>\",\n  \"hotel_supplier_id\": \"<string>\",\n  \"message_for_invoices\": \"<string>\",\n  \"services\": {\n    \"service_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"name\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"count\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"unit_type\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"amount_without_nds\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"amount_nds\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"amount\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"deadline_date\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/create_invoice_invoice",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"create_invoice_invoice"
+									]
+								},
+								"description": "<p>Метод API позволяет создать или отредактировать счет для одиночного или группового бронирования.</p> <p>В секции services каждое свойство является массивом и в этих массивах важен порядок расположения элементов. Например, если вы хотите выставить счет на две услуги: Завтрак с id 1234 по цене 200 рублей и Обед с id 1235 по цене 700 рублей, необходимо в service_id через запятую указать id этих услуг, т.е. [1234, 1235], в amount стоимость [200, 700] и т. д. для остальных свойств в services</p> <p>Также для корректного отображения счета в интерфейсе Bnovo PMS, если вы выставляете счет на несколько услуг, необходимо добавлять последний пустой элемент в каждый массив внутри services.</p>"
+							},
+							"response": [
+								{
+									"name": "Результат запроса",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "X-Requested-With",
+												"value": "<string>",
+												"description": "(Required) "
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"booking_id\": \"<string>\",\n  \"group_id\": \"<string>\",\n  \"type_id\": \"<string>\",\n  \"invoice_id\": \"<string>\",\n  \"supplier_type_id\": \"<string>\",\n  \"supplier_id\": \"<string>\",\n  \"payer_name\": \"<string>\",\n  \"hotel_supplier_id\": \"<string>\",\n  \"message_for_invoices\": \"<string>\",\n  \"services\": {\n    \"service_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"name\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"count\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"unit_type\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"amount_without_nds\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"amount_nds\": [\n      \"<number>\",\n      \"<number>\"\n    ],\n    \"amount\": [\n      \"<number>\",\n      \"<number>\"\n    ]\n  },\n  \"deadline_date\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/create_invoice_invoice",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"create_invoice_invoice"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"result\": \"<string>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "change_booking_status",
+					"item": [
+						{
+							"name": "Сменить статус бронирования",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"booking_id\": \"<string>\",\n  \"new_status_id\": \"<number>\",\n  \"cancel_reason_id\": \"<number>\",\n  \"concierge_checkout\": \"<number>\",\n  \"booking_number\": \"<string>\",\n  \"is_checkin\": \"<number>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/change_booking_status",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"change_booking_status"
+									]
+								},
+								"description": "Метод API позволяет сменить статус бронирования."
+							},
+							"response": [
+								{
+									"name": "Ответ",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"booking_id\": \"<string>\",\n  \"new_status_id\": \"<number>\",\n  \"cancel_reason_id\": \"<number>\",\n  \"concierge_checkout\": \"<number>\",\n  \"booking_number\": \"<string>\",\n  \"is_checkin\": \"<number>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/change_booking_status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"change_booking_status"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "change_booking_guest",
+					"item": [
+						{
+							"name": "Редактировать информацию о заказчике",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"booking_id\": \"<string>\",\n  \"group_id\": \"<number>\",\n  \"customer_id\": \"<number>\",\n  \"change_in_linked\": \"<number>\",\n  \"surname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"middlename\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<number>\",\n  \"customers_tags\": \"<array>\",\n  \"notes\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/change_booking_guest",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"change_booking_guest"
+									]
+								},
+								"description": "Метод API позволяет отредактировать информацию о заказчике, которая отображается в карточке бронирования на вкладке \"Основное\". Заказчик всегда автоматически добавляется в список гостей (вкладка \"Гости\"), но если он не является гостем, администратор отеля может удалить его из списка гостей. Следует иметь в виду, что технически Заказчик и Гость - одна и та же запись в БД. Данный метод позволяет отредактировать только часть параметров. Для изменения остальных используйте метод /booking/edit_customer"
+							},
+							"response": [
+								{
+									"name": "Ответ",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"booking_id\": \"<string>\",\n  \"group_id\": \"<number>\",\n  \"customer_id\": \"<number>\",\n  \"change_in_linked\": \"<number>\",\n  \"surname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"middlename\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<number>\",\n  \"customers_tags\": \"<array>\",\n  \"notes\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/change_booking_guest",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"change_booking_guest"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "add_customer",
+					"item": [
+						{
+							"name": "Добавить информацию о госте",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"form_action\": \"<string>\",\n  \"booking_id\": \"<number>\",\n  \"customer_id\": \"<number>\",\n  \"guest_type\": {\n    \"description\": \"Тип гостя (1 - взрослый, 2 - ребенок)\",\n    \"example\": 1\n  },\n  \"gender\": {\n    \"description\": \"Пол (1 - мужской, 2 - женский)\",\n    \"example\": 1\n  },\n  \"citizenship_id\": {\n    \"description\": \"ID страны, гражданином которой является гость\",\n    \"example\": 171\n  },\n  \"surname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"middlename\": {\n    \"description\": \"Отчество\",\n    \"example\": \"Иванович\"\n  },\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"birthdate\": \"<string>\",\n  \"birth_country_name\": \"<string>\",\n  \"birth_country_id\": \"<number>\",\n  \"birth_region_name\": \"<string>\",\n  \"birth_area_name\": \"<string>\",\n  \"birth_city_name\": \"<string>\",\n  \"birth_locality_name\": \"<string>\",\n  \"document_type\": \"<string>\",\n  \"document_series\": {\n    \"description\": \"Серия\",\n    \"example\": 5709\n  },\n  \"document_number\": {\n    \"description\": \"Номер\",\n    \"example\": 123456\n  },\n  \"document_unit_code\": {\n    \"description\": \"Код подразделения\",\n    \"example\": \"590-021\"\n  },\n  \"document_organization_issued\": {\n    \"description\": \"Кем выдан\",\n    \"example\": \"ОТДЕЛЕНИЕ УФМС РОССИИ\"\n  },\n  \"document_date_issued\": {\n    \"description\": \"Дата выдачи\",\n    \"example\": \"11-11-2021\"\n  },\n  \"document_date_end\": {\n    \"description\": \"Срок действия\"\n  },\n  \"passport_scan\": \"<string>\",\n  \"address_free\": {\n    \"description\": \"Адрес в свободной форме\"\n  },\n  \"address_fias\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"address_region\": \"<string>\",\n  \"address_region_only\": \"<string>\",\n  \"address_area_only\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address_street_name\": \"<string>\",\n  \"address_house\": \"<string>\",\n  \"address_housing\": \"<string>\",\n  \"address_flat\": \"<string>\",\n  \"address_date\": \"<string>\",\n  \"migcard_series\": \"<string>\",\n  \"migcard_number\": \"<string>\",\n  \"migcard_date_arrival\": \"<string>\",\n  \"migcard_kpp\": \"<string>\",\n  \"migcard_kpp_code\": \"<string>\",\n  \"migcard_date_start\": \"<string>\",\n  \"migcard_date_end\": \"<string>\",\n  \"representative_customer_id\": \"<string>\",\n  \"relationtype_id\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/add_customer",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"add_customer"
+									]
+								},
+								"description": "Метод API позволяет добавить информацию о госте в карточку бронирования"
+							},
+							"response": [
+								{
+									"name": "Ответ",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"form_action\": \"<string>\",\n  \"booking_id\": \"<number>\",\n  \"customer_id\": \"<number>\",\n  \"guest_type\": {\n    \"description\": \"Тип гостя (1 - взрослый, 2 - ребенок)\",\n    \"example\": 1\n  },\n  \"gender\": {\n    \"description\": \"Пол (1 - мужской, 2 - женский)\",\n    \"example\": 1\n  },\n  \"citizenship_id\": {\n    \"description\": \"ID страны, гражданином которой является гость\",\n    \"example\": 171\n  },\n  \"surname\": \"<string>\",\n  \"name\": \"<string>\",\n  \"middlename\": {\n    \"description\": \"Отчество\",\n    \"example\": \"Иванович\"\n  },\n  \"email\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"birthdate\": \"<string>\",\n  \"birth_country_name\": \"<string>\",\n  \"birth_country_id\": \"<number>\",\n  \"birth_region_name\": \"<string>\",\n  \"birth_area_name\": \"<string>\",\n  \"birth_city_name\": \"<string>\",\n  \"birth_locality_name\": \"<string>\",\n  \"document_type\": \"<string>\",\n  \"document_series\": {\n    \"description\": \"Серия\",\n    \"example\": 5709\n  },\n  \"document_number\": {\n    \"description\": \"Номер\",\n    \"example\": 123456\n  },\n  \"document_unit_code\": {\n    \"description\": \"Код подразделения\",\n    \"example\": \"590-021\"\n  },\n  \"document_organization_issued\": {\n    \"description\": \"Кем выдан\",\n    \"example\": \"ОТДЕЛЕНИЕ УФМС РОССИИ\"\n  },\n  \"document_date_issued\": {\n    \"description\": \"Дата выдачи\",\n    \"example\": \"11-11-2021\"\n  },\n  \"document_date_end\": {\n    \"description\": \"Срок действия\"\n  },\n  \"passport_scan\": \"<string>\",\n  \"address_free\": {\n    \"description\": \"Адрес в свободной форме\"\n  },\n  \"address_fias\": \"<string>\",\n  \"postcode\": \"<string>\",\n  \"address_region\": \"<string>\",\n  \"address_region_only\": \"<string>\",\n  \"address_area_only\": \"<string>\",\n  \"city\": \"<string>\",\n  \"address_street_name\": \"<string>\",\n  \"address_house\": \"<string>\",\n  \"address_housing\": \"<string>\",\n  \"address_flat\": \"<string>\",\n  \"address_date\": \"<string>\",\n  \"migcard_series\": \"<string>\",\n  \"migcard_number\": \"<string>\",\n  \"migcard_date_arrival\": \"<string>\",\n  \"migcard_kpp\": \"<string>\",\n  \"migcard_kpp_code\": \"<string>\",\n  \"migcard_date_start\": \"<string>\",\n  \"migcard_date_end\": \"<string>\",\n  \"representative_customer_id\": \"<string>\",\n  \"relationtype_id\": \"<string>\",\n  \"notes\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/add_customer",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"add_customer"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "add_booking_service",
+					"item": [
+						{
+							"name": "Доп. услуги в бронированиях",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"booking_id\": \"<integer>\",\n  \"service_id\": \"<integer>\",\n  \"quantity\": {\n    \"2021-08-17\": \"<integer>\",\n    \"2021-08-18\": \"<integer>\"\n  },\n  \"included\": 0,\n  \"price\": {\n    \"2021-08-17\": 0,\n    \"2021-08-18\": 0\n  }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/booking/add_booking_service",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"booking",
+										"add_booking_service"
+									]
+								},
+								"description": "<p>Метод API позволяет добавлять, редактировать и удалять дополнительные услуги в бронированиях.</p> <p>Для добавления услуги необходимо передать ID брони, ID услуги, количество и сумму за услугу на конкретные даты.</p> <p>Чтобы удалить ранее добавленную услугу необходимо передать количество и сумму на конкретные даты, равные нулю.</p> <p>Услуга с одним и тем же ID на одну и ту же дату может быть привязана только один раз. Если гость в один день воспользовался одной и той же услугой несколько раз, передавать новое количество и цену нужно с учетом предыдущих.</p> <p>Получить список уже привязанных услуг можно с помощью метода /booking/general/{booking_id} (см. параметр <b>services_existing_prices</b>)"
+							},
+							"response": [
+								{
+									"name": "Результат запроса",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"booking_id\": \"<integer>\",\n  \"service_id\": \"<integer>\",\n  \"quantity\": {\n    \"2021-08-17\": \"<integer>\",\n    \"2021-08-18\": \"<integer>\"\n  },\n  \"included\": 0,\n  \"price\": {\n    \"2021-08-17\": 0,\n    \"2021-08-18\": 0\n  }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/booking/add_booking_service",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"booking",
+												"add_booking_service"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "<string>"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "current",
+					"item": [
+						{
+							"name": "Информация о текущем выбранном аккаунте отеля и пользователе",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/account/current",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"account",
+										"current"
+									]
+								},
+								"description": "<p>Метод API позволяет получить информацию о текущем выбранном аккаунте отеля и пользователе.</p>"
+							},
+							"response": [
+								{
+									"name": "Текущий аккаунт",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/account/current",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"account",
+												"current"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"hotel\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"country\": \"<string>\",\n    \"city\": \"<string>\",\n    \"city_eng\": \"<string>\",\n    \"address\": \"<string>\",\n    \"address_eng\": \"<string>\",\n    \"postcode\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<string>\",\n    \"timezone\": \"<string>\",\n    \"arrival_time\": \"<string>\",\n    \"departure_time\": \"<string>\",\n    \"create_date\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"geo_data\": {\n      \"x\": \"<string>\",\n      \"y\": \"<string>\"\n    },\n    \"extra\": {\n      \"type\": \"<string>\",\n      \"stars\": \"<string>\"\n    },\n    \"language\": \"<string>\",\n    \"notification_emails\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"owner_email\": \"<string>\"\n  },\n  \"current_user\": {\n    \"id\": \"<string>\",\n    \"username\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"middlename\": \"<string>\",\n    \"surname\": \"<string>\",\n    \"hotels\": [\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    ]\n  }\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "/",
+			"item": [
+				{
+					"name": "Авторизация пользователя",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "<string>",
+									"description": "Логин пользователя"
+								},
+								{
+									"key": "password",
+									"value": "<string>",
+									"description": "Пароль пользователя"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								""
+							]
+						},
+						"description": "<p>Метод API позволяет авторизовать пользователя по его логину и паролю. Создать доступы к API Bnovo PMS может владелец аккаунта в разделе <a href=\"https://online.bnovo.ru/octopus\">Bnovo Octopus</a>. В правом верхнем углу будет кнопка \"Создать свою интеграцию\". Логин и пароль будут показаны один раз, и доступ будет открыт только к тому аккаунту, в котором они были созданы. Если у вас мультиаккаунт и по API нужен доступ к разным аккаунтам, необходимо в каждом создать доступы, а в своей системе авторизовываться с логином и паролем от нужного аккаунта.</p> <p>В системе Bnovo PMS после авторизации происходит 302-й редирект на страницу, которую пользователь выбрал в настройках (обычно это \"шахматка\" - таблица с бронированиями). При авторизации в браузере или через утилиту Postman, сохранение SID в куках и переадресация происходят в нужном порядке автоматически. В коде же важно сохранить в куках SID в момент получения от сервера ответа с кодом 302 и сделать так, чтобы перед переадресацией кука уже сохранилась и добавилась к данному запросу. Также нужно будет добавлять SID ко всем последующим запросам.</p> <p>Если вы разрабатываете на PHP или Node.js, можете запросить примеры кода по почте api-support@bnovo.ru</p>"
+					},
+					"response": [
+						{
+							"name": "Ответ",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "<string>",
+											"description": "Логин пользователя"
+										},
+										{
+											"key": "password",
+											"value": "<string>",
+											"description": "Пароль пользователя"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://online.bnovo.ru"
+		}
+	]
+}
